@@ -1,0 +1,28 @@
+<mat-progress-bar class="ts-spinner" *ngIf="page.commonservice.spinner" [mode]="&apos;indeterminate&apos;" color="&apos;#00A758&apos;" value="50" bufferValue="75"></mat-progress-bar>
+<div fxLayout="column " class="formcard" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="column wrap" class="header" fxLayoutAlign="center center" [fxShow]="true">
+    <div>
+      Welcome Back</div>
+    <div class="subheader font-10">
+      Login to continue</div>
+  </div>
+  <form [formGroup]="page.loginform" autocomplete="off" (ngSubmit)="loginUser()">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="font-12">
+        Username :</div>
+      <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput type="text" placeholder="Username" [required]="false" formControlName="email">
+        <mat-icon matPrefix>person</mat-icon>
+      </mat-form-field>
+    </div>
+    <div fxLayout="column wrap" class="mt2" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="font-12">
+        Password :</div>
+      <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput type="password" placeholder="Password" [required]="false" formControlName="password">
+        <mat-icon matPrefix>lock</mat-icon>
+      </mat-form-field>
+    </div>
+    <div fxLayout="column wrap" class="bold mt2" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-button type="submit">Login</button></div>
+  </form>
+</div>

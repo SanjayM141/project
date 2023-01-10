@@ -1,0 +1,32 @@
+<header>
+  <div fxLayout="row wrap" class="font-20 bold white-label" fxLayoutAlign="space-between stretch" [fxShow]="true">
+    <div class="bold font-20 add-employee-header">
+      {{page.popupdata.header}}
+    </div>
+    <mat-icon class="cursor-pointer closeicon" (click)="close_popup()">close</mat-icon>
+  </div>
+</header>
+<form [formGroup]="page.add_addDesignation_form" autocomplete="off" class="font-12 bold" (ngSubmit)="addDesignation()">
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="column wrap" class="addproject-popup" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div class="label">
+          Designations Name</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="employee_id" type="text" placeholder="Designations Name" [required]="true" formControlName="designation_name">
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div class="label">
+          No of Employees</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="first_name" type="number" placeholder="0" [required]="true" formControlName="designation_count">
+
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="column wrap" fxFlex="40" fxLayoutAlign="center center" [fxShow]="true"><img imgSrc="/Web/designations-image.png" class="project-image"></div>
+  </div>
+  <div fxLayout="row wrap" class="button-container" fxLayoutGap="20px" fxLayoutAlign="end center" [fxShow]="true"><button mat-button class="reset-btn cancel-btn" (click)="close_popup()" type="button">Cancel</button><button mat-button class="update-btn" type="submit">Add</button></div>
+</form>

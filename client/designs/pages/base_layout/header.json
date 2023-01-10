@@ -1,0 +1,378 @@
+[
+    {
+        "id": "sd_PakUU79XL0j4tv1v",
+        "type": "tab",
+        "createdDate": "2022-12-13T14:57:37.702Z",
+        "label": "header",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "headerComponent"
+    },
+    {
+        "id": "sd_kDhMrgsgJxiCpZwW",
+        "type": "OnInit",
+        "z": "sd_PakUU79XL0j4tv1v",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "profile_values",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "pageVariables": [],
+        "functionName": "sd_kDhMrgsgJxiCpZwW",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 40,
+        "wires": [
+            [
+                "sd_myejKFCDW9u1dR96"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "headerComponent"
+    },
+    {
+        "id": "sd_myejKFCDW9u1dR96",
+        "type": "PageVariables",
+        "z": "sd_PakUU79XL0j4tv1v",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "profile_values",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            },
+            {
+                "textIp": "loaded",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            }
+        ],
+        "functionName": "sd_myejKFCDW9u1dR96",
+        "category": "Function",
+        "x": 185,
+        "y": 40,
+        "wires": [
+            [
+                "sd_BU00MZwbq6Bfayxa"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "headerComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_yj1yaXaxOuKv2bZM",
+        "type": "PageStart",
+        "z": "sd_PakUU79XL0j4tv1v",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "signOut",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "signOut",
+        "category": "General",
+        "x": 60,
+        "y": 160,
+        "wires": [
+            [
+                "sd_zyUdjgXxt4g5tTMJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "headerComponent"
+    },
+    {
+        "id": "sd_zyUdjgXxt4g5tTMJ",
+        "type": "Storage",
+        "z": "sd_PakUU79XL0j4tv1v",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "clear",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {},
+        "value": {},
+        "resultMapping": {},
+        "functionName": "sd_zyUdjgXxt4g5tTMJ",
+        "category": "Storage",
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "sd_kV3WUsQP1vJ14KsX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "headerComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_kV3WUsQP1vJ14KsX",
+        "type": "Navigation",
+        "z": "sd_PakUU79XL0j4tv1v",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "path": "/login",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
+        "functionName": "sd_kV3WUsQP1vJ14KsX",
+        "category": "Navigation",
+        "x": 305,
+        "y": 160,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "headerComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_BU00MZwbq6Bfayxa",
+        "type": "Storage",
+        "z": "sd_PakUU79XL0j4tv1v",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "info"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "bh.local",
+            "value": "info"
+        },
+        "functionName": "sd_BU00MZwbq6Bfayxa",
+        "category": "Storage",
+        "x": 285,
+        "y": 40,
+        "wires": [
+            [
+                "sd_jaRi162DKf5p56bc"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "headerComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_W2C28Wus4kB4LNp3",
+        "type": "Script",
+        "z": "sd_PakUU79XL0j4tv1v",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.profile_values = bh.local.profileresponse.response[0];\npage.initials = page.profile_values.employee_name.split(' ').slice(0,2).map((x)=>x[0]).join('');\npage.loaded = true;",
+        "functionName": "sd_W2C28Wus4kB4LNp3",
+        "category": "Function",
+        "x": 605,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "headerComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_jaRi162DKf5p56bc",
+        "type": "PageCallService",
+        "z": "sd_PakUU79XL0j4tv1v",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_nJ0lzHT8cpyN1tcM",
+            "type": "tab",
+            "createdDate": "2022-12-27T08:47:34.270Z",
+            "label": "get_profile",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_sE2kN1biEMYdKK80",
+            "flowName": "get_profile"
+        },
+        "inputVariables": [
+            {
+                "key": "token",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "info.validUserToken"
+            },
+            {
+                "key": "profileresult",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "profileresult",
+                "valueType": "bh.local",
+                "value": "profileresponse",
+                "mapVarName": "profileresult",
+                "localVar": "bh.local.profileresponse"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/get_profile",
+        "startName": "get_profile",
+        "inputParams": [
+            "bh.local.info.validUserToken",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_jaRi162DKf5p56bc",
+        "category": "General",
+        "x": 385,
+        "y": 40,
+        "wires": [
+            [
+                "sd_gwmLPtPo1t1TtkhG"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "headerComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_gwmLPtPo1t1TtkhG",
+        "type": "PageSwitch",
+        "z": "sd_PakUU79XL0j4tv1v",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "profileresponse.hasError",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.profileresponse.hasError",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_gwmLPtPo1t1TtkhG",
+        "category": "Function",
+        "x": 485,
+        "y": 40,
+        "wires": [
+            [
+                "sd_W2C28Wus4kB4LNp3"
+            ],
+            [
+                "sd_sSXXDabjs8mFA1Ug"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "headerComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_sSXXDabjs8mFA1Ug",
+        "type": "Storage",
+        "z": "sd_PakUU79XL0j4tv1v",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "clear",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {},
+        "value": {},
+        "resultMapping": {},
+        "functionName": "sd_sSXXDabjs8mFA1Ug",
+        "category": "Storage",
+        "x": 591.6666870117188,
+        "y": 124.80207824707031,
+        "wires": [
+            [
+                "sd_ek00tKNDYHjxZqZ1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "headerComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ek00tKNDYHjxZqZ1",
+        "type": "Navigation",
+        "z": "sd_PakUU79XL0j4tv1v",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "path": "/login",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
+        "functionName": "sd_ek00tKNDYHjxZqZ1",
+        "category": "Navigation",
+        "x": 696.6666870117188,
+        "y": 124.80207824707031,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "headerComponent",
+        "generated": true
+    }
+]

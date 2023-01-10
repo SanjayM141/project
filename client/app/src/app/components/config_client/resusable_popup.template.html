@@ -1,0 +1,127 @@
+<header>
+  <div fxLayout="row wrap" class="font-20 bold white-label" fxLayoutAlign="space-between stretch" [fxShow]="true">
+    <div class="bold font-20 add-employee-header">
+      {{page.popup.action | titlecase}} {{page.popup.popup_name | titlecase}}
+    </div>
+    <mat-icon class="cursor-pointer closeicon" (click)="close_popup(false)">close</mat-icon>
+  </div>
+</header>
+<form [formGroup]="page.add_form" autocomplete="off" class="font-12 bold" (ngSubmit)="addRecord()">
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="column wrap" class="mr2 addproject-popup" fxFlex="50" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;project&apos; &amp;&amp; page.popup.action == &apos;edit&apos;">
+        <div class="label">
+          Project ID</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="project_id" type="text" placeholder="Project ID" [required]="true" formControlName="project_id" readonly="true">
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;project&apos;">
+        <div class="label">
+          Project Name</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="project_name" type="text" placeholder="Project Name" [required]="true" formControlName="project_name">
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;project&apos;">
+        <div class="label">
+          Project Code</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="project_code" type="text" placeholder="Project Code" [required]="true" formControlName="project_code">
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;project&apos;">
+        <div class="label">
+          Project Start Date</div>
+        <mat-form-field class="date-field width-100" [appearance]="&apos;fill&apos;">
+          <input matInput placeholder="Start Date" [matDatepicker]="pickerjoin" formControlName="project_start_date" name="project_start_date" [required]="false" [disabled]="false">
+          <mat-datepicker-toggle matSuffix [for]="pickerjoin" disabled="false"></mat-datepicker-toggle>
+          <mat-datepicker #pickerjoin [disabled]="false"></mat-datepicker>
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;client&apos; &amp;&amp; page.popup.action == &apos;edit&apos;">
+        <div class="label">
+          Client ID</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="client_id" type="text" placeholder="Client ID" [required]="true" formControlName="client_id" readonly="true">
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;client&apos;">
+        <div class="label">
+          Client Name</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="client_name" type="text" placeholder="Client Name" [required]="true" formControlName="client_name">
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;hr contact info&apos;" [ngClass]="{&apos;no-pointer-events&apos;:(page.popup.action == &apos;edit&apos;)}">
+        <div class="label">
+          HR Name</div>
+        <mat-form-field class="selectbox" [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;">
+          <mat-select formControlName="hr_id" panelClass="dark-panel" placeholder="Select" [required]="false" name="hr_id">
+            <ng-template ngFor let-option [ngForOf]="page.hr_list" let-i="index">
+              <mat-option [value]="option.hr_id">{{option.hr_name}}</mat-option>
+            </ng-template>
+          </mat-select>
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;hr contact info&apos; &amp;&amp; page.popup.action == &apos;edit&apos;">
+        <div class="label">
+          HR Contact No</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="hr_contact_number" type="number" placeholder="Contact No" [required]="true" formControlName="hr_contact_number">
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;employee type&apos; &amp;&amp; page.popup.action == &apos;edit&apos;">
+        <div class="label">
+          Employee Type ID</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="employee_type_id" type="text" placeholder="Employee Type ID" [required]="true" formControlName="employee_type_id" readonly="true">
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;employee type&apos;">
+        <div class="label">
+          Employee Type Name</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="employee_type_name" type="text" placeholder="Employee Type Name" [required]="true" formControlName="employee_type_name">
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;employee&apos;">
+        <div class="label">
+          Employee Name</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="employee_name" type="text" placeholder="Employee  Name" [required]="true" formControlName="employee_name">
+
+        </mat-form-field>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;employee&apos;">
+        <div class="label">
+          Contact No</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="contact_no" type="number" placeholder="Contact No" [required]="true" formControlName="contact_no">
+
+        </mat-form-field><span *ngIf="page.add_form.get(&apos;contact_no&apos;).touched &amp;&amp; page.add_form.get(&apos;contact_no&apos;).hasError(&apos;pattern&apos;)" class="error font-10">
+                Please enter a valid Contact Number</span>
+      </div>
+      <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.popup.popup_name == &apos;employee&apos; &amp;&amp; page.popup.action == &apos;edit&apos;">
+        <div class="label">
+          Employee ID</div>
+        <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+          <input matInput name="employee_id" type="text" placeholder="Employee ID" [required]="true" formControlName="employee_id" readonly="true">
+
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="column wrap" fxFlex="40" fxLayoutAlign="center center" [fxShow]="true"><img imgSrc="/Web/designations-image.png" style="width: 300px; height: 300px;" *ngIf="page.popup.popup_name == &apos;designation&apos;" class="image"><img imgSrc="/Web/project_image_white.png" *ngIf="page.popup.popup_name == &apos;project&apos;" class="image"><img imgSrc="/Web/client_image_white.png" *ngIf="page.popup.popup_name == &apos;client&apos;" class="image"><img imgSrc="/Web/contact_image_white.png" *ngIf="page.popup.popup_name == &apos;hr contact info&apos;" class="image"><img imgSrc="/Web/type_image_white.png" *ngIf="page.popup.popup_name == &apos;employee type&apos;" class="image"></div>
+  </div>
+  <div fxLayout="row wrap" class="button-container" fxLayoutGap="20px" fxLayoutAlign="end center" [fxShow]="true"><button mat-button class="reset-btn cancel-btn" (click)="close_popup(false)" type="button">Cancel</button><button mat-button class="update-btn" [disabled]="!page.add_form.valid" type="submit">{{page.popup.action == &apos;edit&apos; ? &apos;Update&apos; : &apos;Add&apos;}}</button></div>
+</form>

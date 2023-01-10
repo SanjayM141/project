@@ -1,0 +1,126 @@
+[
+    {
+        "id": "sd_RxBFNFN1m4sIAeA6",
+        "type": "tab",
+        "createdDate": "2022-12-30T06:47:16.379Z",
+        "label": "login",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "login",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_YbFa6H6QX9o7f3nJ",
+        "type": "Start",
+        "z": "sd_RxBFNFN1m4sIAeA6",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "login_api",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "details",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "loginresponse",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "login_api",
+        "category": "General",
+        "x": 125,
+        "y": 140,
+        "wires": [
+            [
+                "sd_12io4AwOfLY6YtNR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "login"
+    },
+    {
+        "id": "sd_12io4AwOfLY6YtNR",
+        "type": "Script",
+        "z": "sd_RxBFNFN1m4sIAeA6",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.loginurl = \"http://localhost:8081/api/user/login\";\nbh.local.requestbody = { login : bh.input.details };",
+        "functionName": "sd_12io4AwOfLY6YtNR",
+        "category": "Function",
+        "x": 245,
+        "y": 140,
+        "wires": [
+            [
+                "sd_MRcOgHqTa1F24ofy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login",
+        "generated": true
+    },
+    {
+        "id": "sd_MRcOgHqTa1F24ofy",
+        "type": "HttpRequest",
+        "z": "sd_RxBFNFN1m4sIAeA6",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.loginurl",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "loginurl"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.requestbody",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "requestbody"
+        },
+        "resultMapping": "bh.input.loginresponse",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "loginresponse"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_MRcOgHqTa1F24ofy",
+        "category": "HTTP",
+        "x": 360,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "login",
+        "generated": true
+    }
+]

@@ -1,0 +1,306 @@
+[
+    {
+        "id": "sd_A5agXmNhBwo3ejoE",
+        "type": "tab",
+        "createdDate": "2022-12-14T07:48:52.806Z",
+        "label": "timesheet_status",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 1,
+        "generateNext": true,
+        "serviceName": "timesheet_statusComponent"
+    },
+    {
+        "id": "sd_fWDVzFx2s7phcEYj",
+        "type": "OnInit",
+        "z": "sd_A5agXmNhBwo3ejoE",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_fWDVzFx2s7phcEYj",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_QgzDzudvSuvypqFe"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "timesheet_statusComponent"
+    },
+    {
+        "id": "sd_QgzDzudvSuvypqFe",
+        "type": "PageVariables",
+        "z": "sd_A5agXmNhBwo3ejoE",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "year",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "2022"
+                }
+            }
+        ],
+        "functionName": "sd_QgzDzudvSuvypqFe",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            [
+                "sd_mZjRoeQp2cJITPSU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_statusComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_mZjRoeQp2cJITPSU",
+        "type": "Script",
+        "z": "sd_A5agXmNhBwo3ejoE",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.dataSource = new MatTableDataSource([\n  {\n    tsMonths: 'Jan-2022', tsSent: 50, approved: 50, rejected: 1, approvalsRem: 0 }\n  ,\n  {\n    tsMonths: 'Feb-2022', tsSent: 50, approved: 48, rejected: 2, approvalsRem: 0 }\n  ,\n  {\n    tsMonths: 'Mar-2022', tsSent: 50, approved: 46, rejected: 4, approvalsRem: 0 }\n  ,\n  {\n    tsMonths: 'Apr-2022', tsSent: 50, approved: 47, rejected: 2, approvalsRem: 1 }\n  ,\n  {\n    tsMonths: 'May-2022', tsSent: 50, approved: 48, rejected: 2, approvalsRem: 0 }\n  ,\n  {\n    tsMonths: 'Jun-2022', tsSent: 50, approved: 19, rejected: 1, approvalsRem: 30 }\n  ,\n]);\n\npage.state = [\n   {value: 2018, viewValue: 2018},\n   {value: 2019, viewValue: 2019},\n   {value: 2020, viewValue: 2020},\n   {value: 2021, viewValue: 2021},\n   {value: 2022, viewValue: 2022},\n ]",
+        "functionName": "sd_eJuzOUTYKNgXaqdz_1",
+        "category": "Function",
+        "x": 285,
+        "y": 40,
+        "wires": [
+            [
+                "sd_97S7aP0z5ulgUDHL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_statusComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_97S7aP0z5ulgUDHL",
+        "type": "PageVariables",
+        "z": "sd_A5agXmNhBwo3ejoE",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "tableData",
+                "typedIpValue": {
+                    "type": "bh.local",
+                    "value": "dataSource"
+                }
+            }
+        ],
+        "functionName": "sd_E9QbOlnVduPNV5MO_1",
+        "category": "Function",
+        "x": 425,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_statusComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_OuvwYZvCfzqUElcS",
+        "type": "AfterViewInit",
+        "z": "sd_A5agXmNhBwo3ejoE",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 250,
+        "wires": [
+            [
+                "sd_itYaXEVSxGYNKdEB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "timesheet_statusComponent"
+    },
+    {
+        "id": "sd_itYaXEVSxGYNKdEB",
+        "type": "ViewPicker",
+        "z": "sd_A5agXmNhBwo3ejoE",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatSort"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_xKCCTWKzvgDN0rx7_1",
+        "category": "Function",
+        "x": 205,
+        "y": 250,
+        "wires": [
+            [
+                "sd_YRDY4omKGPDaauYy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_statusComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_YRDY4omKGPDaauYy",
+        "type": "Script",
+        "z": "sd_A5agXmNhBwo3ejoE",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.tableData.sort = this.MatSort;",
+        "functionName": "sd_2VNGqvcKee34lvOz_1",
+        "category": "Function",
+        "x": 345,
+        "y": 250,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_statusComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_bBVmfS3wEerng9UP",
+        "type": "Script",
+        "z": "sd_A5agXmNhBwo3ejoE",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// console.log(bh.input.filterEvent);\nconst filterValue = (bh.input.filterEvent.target as HTMLInputElement).value;\nthis.page.tableData.filter = filterValue.trim().toLowerCase();\n// console.log(this.page.tableData.filteredData)\n\n",
+        "functionName": "sd_iBlFYTlpoczCmWts_2",
+        "category": "Function",
+        "x": 205,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_statusComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_TmZSub7gCKadd2Fm",
+        "type": "PageStart",
+        "z": "sd_A5agXmNhBwo3ejoE",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "onFilter_2",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "filterEvent",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "onFilter_2",
+        "category": "General",
+        "x": 65,
+        "y": 360,
+        "wires": [
+            [
+                "sd_bBVmfS3wEerng9UP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "timesheet_statusComponent"
+    },
+    {
+        "id": "sd_kDMOFIoYhAXX53jJ",
+        "type": "PageStart",
+        "z": "sd_A5agXmNhBwo3ejoE",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "particularYear",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "year",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "particularYear",
+        "category": "General",
+        "x": 325,
+        "y": 360,
+        "wires": [
+            [
+                "sd_BDPXPO54WwPmlwWN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "timesheet_statusComponent"
+    },
+    {
+        "id": "sd_BDPXPO54WwPmlwWN",
+        "type": "Navigation",
+        "z": "sd_A5agXmNhBwo3ejoE",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "path": "/home/timesheet-status/:id",
+        "pathparams": [
+            {
+                "paramKey": "id",
+                "paramValue": {
+                    "type": "bh.input",
+                    "value": "year"
+                }
+            }
+        ],
+        "functionName": "sd_BDPXPO54WwPmlwWN",
+        "category": "Navigation",
+        "x": 425,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_statusComponent",
+        "generated": true
+    }
+]

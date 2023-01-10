@@ -1,0 +1,126 @@
+[
+    {
+        "id": "sd_cSlFBTUiTj5sazJp",
+        "type": "tab",
+        "createdDate": "2023-01-05T09:38:05.736Z",
+        "label": "active_or_deactive_employee",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "active_or_deactive_employee",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_74eOh7mCxL4i9Vx1",
+        "type": "Start",
+        "z": "sd_cSlFBTUiTj5sazJp",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "active_or_deactive_employee",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "employees_ids",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "is_active",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "active_or_deactive_employee",
+        "category": "General",
+        "x": 100,
+        "y": 80,
+        "wires": [
+            [
+                "sd_kQ3YYFMI6ptkIRzo"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "active_or_deactive_employee"
+    },
+    {
+        "id": "sd_BBQ9gf7pmRlbKLRn",
+        "type": "HttpRequest",
+        "z": "sd_cSlFBTUiTj5sazJp",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "put",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_BBQ9gf7pmRlbKLRn",
+        "category": "HTTP",
+        "x": 365,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "active_or_deactive_employee",
+        "generated": true
+    },
+    {
+        "id": "sd_kQ3YYFMI6ptkIRzo",
+        "type": "Script",
+        "z": "sd_cSlFBTUiTj5sazJp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = 'http://localhost:8081/api/admin/active_or_deactive_employee';\nbh.local.body = { \n    employee_id : bh.input.employees_ids,\n    is_active : bh.input.is_active\n};\n\n// console.log(bh.input.state.employee_id)",
+        "functionName": "sd_kQ3YYFMI6ptkIRzo",
+        "category": "Function",
+        "x": 240,
+        "y": 80,
+        "wires": [
+            [
+                "sd_BBQ9gf7pmRlbKLRn"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "active_or_deactive_employee",
+        "generated": true
+    }
+]

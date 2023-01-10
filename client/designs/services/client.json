@@ -1,0 +1,362 @@
+[
+    {
+        "id": "sd_35TZRpoubNqfddNl",
+        "type": "tab",
+        "createdDate": "2022-12-29T09:52:58.437Z",
+        "label": "client",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "client",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_xHynuERzkebxu5PA",
+        "type": "Start",
+        "z": "sd_35TZRpoubNqfddNl",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "get_client",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "clientresult",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            },
+            {
+                "key": "currentState",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "get_client",
+        "category": "General",
+        "x": 152,
+        "y": 100.80208587646484,
+        "wires": [
+            [
+                "sd_W4BqvpceUY7tP0Di"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "client"
+    },
+    {
+        "id": "sd_dQm5i8peabcThoQ5",
+        "type": "HttpRequest",
+        "z": "sd_35TZRpoubNqfddNl",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.getclienturl",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "getclienturl"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.input.clientresult",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "clientresult"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "paramMapping": "bh.local.is_active",
+        "paramMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "is_active"
+        },
+        "functionName": "sd_dQm5i8peabcThoQ5",
+        "category": "HTTP",
+        "x": 352,
+        "y": 100.80208587646484,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "client",
+        "generated": true
+    },
+    {
+        "id": "sd_W4BqvpceUY7tP0Di",
+        "type": "Script",
+        "z": "sd_35TZRpoubNqfddNl",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.getclienturl = 'http://localhost:8081/api/admin/get_client';\nbh.local.is_active = { is_active : bh.input.currentState };",
+        "functionName": "sd_W4BqvpceUY7tP0Di",
+        "category": "Function",
+        "x": 252,
+        "y": 100.80208587646484,
+        "wires": [
+            [
+                "sd_dQm5i8peabcThoQ5"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "client",
+        "generated": true
+    },
+    {
+        "id": "sd_AjUfadiQUEcREAim",
+        "type": "Start",
+        "z": "sd_35TZRpoubNqfddNl",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "active_or_deactive_clients",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "client_ids",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "is_active",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "active_or_deactive_clients",
+        "category": "General",
+        "x": 145,
+        "y": 200,
+        "wires": [
+            [
+                "sd_RLkfebbay4cHC2ke"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "client"
+    },
+    {
+        "id": "sd_RLkfebbay4cHC2ke",
+        "type": "Script",
+        "z": "sd_35TZRpoubNqfddNl",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = 'http://localhost:8081/api/admin/active_or_deactive_client';\nbh.local.body = { \n    client_id : bh.input.client_ids,\n    is_active : bh.input.is_active\n};",
+        "functionName": "sd_RLkfebbay4cHC2ke",
+        "category": "Function",
+        "x": 280,
+        "y": 200,
+        "wires": [
+            [
+                "sd_uXT8Uv6zh6boC4Cp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "client",
+        "generated": true
+    },
+    {
+        "id": "sd_uXT8Uv6zh6boC4Cp",
+        "type": "HttpRequest",
+        "z": "sd_35TZRpoubNqfddNl",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "put",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.input.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "result"
+        },
+        "headers": [],
+        "headersObj": {},
+        "headerMapping": "",
+        "headerMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": ""
+        },
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_uXT8Uv6zh6boC4Cp",
+        "category": "HTTP",
+        "x": 385,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "client",
+        "generated": true
+    },
+    {
+        "id": "sd_RYzlJZD2Ye7whogi",
+        "type": "Start",
+        "z": "sd_35TZRpoubNqfddNl",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "add_or_update_client",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "clientValues",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "response",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "add_or_update_client",
+        "category": "General",
+        "x": 145,
+        "y": 300,
+        "wires": [
+            [
+                "sd_m9Wdned871YSXo8b"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "client"
+    },
+    {
+        "id": "sd_m9Wdned871YSXo8b",
+        "type": "Script",
+        "z": "sd_35TZRpoubNqfddNl",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = 'http://localhost:8081/api/admin/add_or_update_client';\nif(!bh.input.clientValues.client_id){\n    bh.input.clientValues.client_id = 0; //Add Operation\n}\nbh.local.body = { client : bh.input.clientValues };",
+        "functionName": "sd_m9Wdned871YSXo8b",
+        "category": "Function",
+        "x": 265,
+        "y": 300,
+        "wires": [
+            [
+                "sd_SesfOgYis9QfpUTr"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "client",
+        "generated": true
+    },
+    {
+        "id": "sd_SesfOgYis9QfpUTr",
+        "type": "HttpRequest",
+        "z": "sd_35TZRpoubNqfddNl",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.input.response",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "response"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_SesfOgYis9QfpUTr",
+        "category": "HTTP",
+        "x": 385,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "client",
+        "generated": true
+    }
+]

@@ -1,0 +1,121 @@
+<div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div class="bold font-18 white-label">
+    Profile Details</div>
+  <div fxLayout="column wrap" class="mt2 ml4 profile-form" fxLayoutAlign="start stretch" [fxShow]="true">
+    <form [formGroup]="page.profile_details">
+      <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="column wrap" class="white-label" fxFlex="18" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div>
+              First Name</div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="First Name" [required]="false" formControlName="first_name">
+              <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="column wrap" class="white-label" fxFlex="18" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div>
+              Last Name</div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Last Name" [required]="false" formControlName="last_name">
+              <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" class="mt2" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="column wrap" class="white-label" fxFlex="18" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div>
+              Employee Id</div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Employee Id" [required]="false" formControlName="employee_id">
+              <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" class="mt2" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="column wrap" class="white-label" fxFlex="18" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div>
+              Title</div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Title" [required]="false" formControlName="designation_name">
+              <mat-icon matPrefix>how_to_reg</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" class="mt2" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="column wrap" class="white-label" fxFlex="18" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div>
+              Employee Type</div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Employee Type" [required]="false" formControlName="employee_type_name">
+              <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" class="mt2" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="column wrap" class="white-label" fxFlex="18" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div>
+              Joining Date</div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Joining Date" [required]="false" formControlName="start_date">
+              <mat-icon matPrefix>date_range</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" class="mt2" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="column wrap" class="white-label" fxFlex="18" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div>
+              Email</div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Email" [required]="false" formControlName="email">
+              <mat-icon matPrefix>email</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" class="mt2" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="start center" [fxShow]="true">
+          <div fxLayout="column wrap" class="white-label" fxFlex="18" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div>
+              Mobile No</div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Mobile Number" [required]="false" formControlName="contact_no">
+              <mat-icon matPrefix>call</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="end center" [fxShow]="true"><button mat-raised-button class="reset-btn" (click)="setformValues()">Reset</button><button mat-raised-button class="update-btn">Update</button></div>
+    </form>
+  </div>
+</div>

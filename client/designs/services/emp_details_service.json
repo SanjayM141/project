@@ -1,0 +1,250 @@
+[
+    {
+        "id": "sd_7dHz0o3LrIPpklg3",
+        "type": "tab",
+        "createdDate": "2023-01-08T16:11:24.953Z",
+        "label": "emp_details_service",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "emp_details_service",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_hDdQjdHm4LXkM5ic",
+        "type": "Start",
+        "z": "sd_7dHz0o3LrIPpklg3",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "emp_details_service",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "emp_details_output",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "emp_details_service",
+        "category": "General",
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "sd_NyLj9Ye0cQ3U0EX6"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emp_details_service"
+    },
+    {
+        "id": "sd_NyLj9Ye0cQ3U0EX6",
+        "type": "Script",
+        "z": "sd_7dHz0o3LrIPpklg3",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = \"http://localhost:8081/api/admin/get_employee_details\";",
+        "functionName": "sd_NyLj9Ye0cQ3U0EX6",
+        "category": "Function",
+        "x": 320,
+        "y": 140,
+        "wires": [
+            [
+                "sd_hQe3qTWUCKmVrRdA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "emp_details_service",
+        "generated": true
+    },
+    {
+        "id": "sd_hQe3qTWUCKmVrRdA",
+        "type": "HttpRequest",
+        "z": "sd_7dHz0o3LrIPpklg3",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.emp_details_output",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "emp_details_output"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_hQe3qTWUCKmVrRdA",
+        "category": "HTTP",
+        "x": 500,
+        "y": 140,
+        "wires": [
+            [
+                "sd_76jOG1f9JSI4H3P3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "emp_details_service",
+        "generated": true
+    },
+    {
+        "id": "sd_KGIMGOoDTPR1ENc1",
+        "type": "Start",
+        "z": "sd_7dHz0o3LrIPpklg3",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "add_or_update_employee",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "emp_detailsValues",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            },
+            {
+                "key": "response",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "add_or_update_employee",
+        "category": "General",
+        "x": 153,
+        "y": 293.8020935058594,
+        "wires": [
+            [
+                "sd_w3UUKgclEr7cLots"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "emp_details_service"
+    },
+    {
+        "id": "sd_w3UUKgclEr7cLots",
+        "type": "Script",
+        "z": "sd_7dHz0o3LrIPpklg3",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = 'http://localhost:8081/api/admin/employee_details';\n\nbh.input.emp_detailsValues.contact_no = parseInt(bh.input.emp_detailsValues.contact_no);\nif(!bh.input.emp_detailsValues.employee_id){\n    bh.input.emp_detailsValues.employee_id = 0; //Add Operation\n}\nbh.local.body = { employee_details : bh.input.emp_detailsValues };\n\n //if(!bh.input.projectValues.project_id){\n//     bh.input.projectValues.project_id = 0; //Add operation\n// }\n\n// bh.local.body = { employee_details : {\n//     \"employee_id\":employee_id,\n//    \"contact_no\": parseInt(bh.input.emp_detailsValues.contact_no),\n//     \"employee_name\": bh.input.emp_detailsValues.employee_name,\n    \n// }\n// bh.input.emp_detailsValues \n//};",
+        "functionName": "sd_w3UUKgclEr7cLots",
+        "category": "Function",
+        "x": 273,
+        "y": 293.8020935058594,
+        "wires": [
+            [
+                "sd_m8aRFbEjYaf2oEdE"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "emp_details_service",
+        "generated": true
+    },
+    {
+        "id": "sd_m8aRFbEjYaf2oEdE",
+        "type": "HttpRequest",
+        "z": "sd_7dHz0o3LrIPpklg3",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.input.response",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "response"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_m8aRFbEjYaf2oEdE",
+        "category": "HTTP",
+        "x": 393,
+        "y": 293.8020935058594,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "emp_details_service",
+        "generated": true
+    },
+    {
+        "id": "sd_76jOG1f9JSI4H3P3",
+        "type": "Script",
+        "z": "sd_7dHz0o3LrIPpklg3",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.emp_details_output = bh.local.emp_details_output.response",
+        "functionName": "sd_76jOG1f9JSI4H3P3",
+        "category": "Function",
+        "x": 680,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "emp_details_service",
+        "generated": true
+    }
+]

@@ -1,0 +1,108 @@
+<div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+    <h2 style="color:white;margin-left: 20px;">
+      Employees</h2>
+  </div>
+  <div fxLayout="row wrap" class="ml2 profile-form" fxLayoutGap="50px" fxLayoutAlign="start center" [fxShow]="true">
+    <div fxLayout="column wrap" class="white-label profile-form" fxLayoutAlign="start stretch" [fxShow]="true">
+      <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput placeholder="Search" [required]="false" autocomplete="off" (keyup)="onFilter_2($event)">
+        <mat-icon matSuffix>
+          <mat-icon class="search-icon">search</mat-icon>
+        </mat-icon>
+      </mat-form-field>
+    </div>
+    <div fxLayout="column wrap" class="white-label" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="row wrap" class="profile-form" fxLayoutGap="20px" fxLayoutAlign="start center" [fxShow]="true">
+        <div style="color:#fff;margin-top: 16px;font-weight:bold">
+          Active</div>
+        <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+          <mat-select [(ngModel)]="page.selectedState" [required]="false" (selectionChange)="valueChange($event)" autoComplete="off">
+            <ng-template ngFor let-option [ngForOf]="page.state" let-i="index">
+              <mat-option [value]="option.value">{{option.viewValue}}</mat-option>
+            </ng-template>
+          </mat-select>
+
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="column wrap" style="bottom:10px;" class="relative" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-raised-button style="width:200px;" class="add-btn add-emp-btn" (click)="edit(&apos;&apos;,&apos;Add Employee&apos;)">Add Employee</button><button mat-raised-button style="width:200px;margin-left:20px;" class="add-emp-btn" *ngIf="page.selectedEmployee.length != 0" (click)="active_deactive_emp()">{{page.selectedState?&apos;Deactivate&apos; :&apos;Activate&apos;}}</button></div>
+    </div>
+  </div>
+  <div fxLayout="row wrap" class="mt3 p2" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="column" class="table">
+      <table mat-table [dataSource]="page?.tableData" class="table-width-fix">
+        <tr mat-header-row *matHeaderRowDef="[&apos;59f8dfa3-3340-6df0-e157-03a198915dd3&apos;,&apos;employee_name&apos;,&apos;7349ffe8-2166-6577-b746-8854e7281447&apos;,&apos;9e83f67a-fc3e-7721-c026-61b32afe6d37&apos;,&apos;reporting_manager&apos;,&apos;2bfed171-b9c0-93eb-6b13-c03ba98633d3&apos;,&apos;email&apos;,&apos;contact_no&apos;,&apos;a8c314e9-3774-5586-370b-1f9bb164a0a6&apos;]"></tr>
+        <tr mat-row *matRowDef="let row; columns: [&apos;59f8dfa3-3340-6df0-e157-03a198915dd3&apos;,&apos;employee_name&apos;,&apos;7349ffe8-2166-6577-b746-8854e7281447&apos;,&apos;9e83f67a-fc3e-7721-c026-61b32afe6d37&apos;,&apos;reporting_manager&apos;,&apos;2bfed171-b9c0-93eb-6b13-c03ba98633d3&apos;,&apos;email&apos;,&apos;contact_no&apos;,&apos;a8c314e9-3774-5586-370b-1f9bb164a0a6&apos;];"></tr>
+
+        <ng-container matColumnDef="59f8dfa3-3340-6df0-e157-03a198915dd3">
+          <th mat-header-cell *matHeaderCellDef class="text-bold center table-color-white">Employee ID</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">
+            <mat-checkbox class="white-checkbox" (change)="select_deselect_emp($event.checked,table)" [required]="false"></mat-checkbox>
+            <div class="center">
+              {{table.employee_id}}
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="employee_name">
+          <th mat-header-cell *matHeaderCellDef class="center table-header">Employee Name</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="center table-column">{{table.employee_name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="7349ffe8-2166-6577-b746-8854e7281447">
+          <th mat-header-cell *matHeaderCellDef class="table-header center">Type</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-column center">
+            <div>
+              {{findType(table.employee_type_id)}}
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="9e83f67a-fc3e-7721-c026-61b32afe6d37">
+          <th mat-header-cell *matHeaderCellDef class="table-header center">Designation</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-column center">
+            <div>
+              {{find_designation(table.designation_id)}}
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="reporting_manager">
+          <th mat-header-cell *matHeaderCellDef class="center table-header">Reporting Manager</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="center table-column">{{table.reporting_manager}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="2bfed171-b9c0-93eb-6b13-c03ba98633d3">
+          <th mat-header-cell *matHeaderCellDef class="center table-header">Joining Date</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="center table-column">
+            <div>
+              {{table.start_date | date:&apos;dd/MM/yyyy&apos; }}
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef class="center table-header">Mail ID</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="center table-column">{{table.email}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="contact_no">
+          <th mat-header-cell *matHeaderCellDef class="center table-header">Contact No</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="center table-column">{{table.contact_no}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="a8c314e9-3774-5586-370b-1f9bb164a0a6">
+          <th mat-header-cell *matHeaderCellDef class="center table-header">Action</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="center">
+            <mat-icon class="cursor-pointer white-label" (click)="edit(table,&apos;edit&apos;)">edit</mat-icon>
+          </td>
+        </ng-container>
+      </table>
+      <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
+      </mat-paginator>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div fxLayout="column wrap" class="tsDashboard" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="row wrap" class="ml2" fxLayoutGap="20px" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="column wrap" class="profile-form" fxLayoutAlign="start stretch" [fxShow]="true">
+      <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+        <mat-select [(ngModel)]="page.selectedYear" [required]="false" (selectionChange)="onSelected(page.selectedYear, page.selectedMonth)">
+          <ng-template ngFor let-option [ngForOf]="page.years" let-i="index">
+            <mat-option [value]="option.value">{{option.viewValue}}</mat-option>
+          </ng-template>
+        </mat-select>
+
+      </mat-form-field>
+    </div>
+    <div fxLayout="column wrap" class="profile-form" fxLayoutAlign="start stretch" [fxShow]="true">
+      <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+        <mat-select [(ngModel)]="page.selectedMonth" [required]="false" (selectionChange)="onSelected(page.selectedYear, page.selectedMonth)">
+          <ng-template ngFor let-option [ngForOf]="page.months" let-i="index">
+            <mat-option [value]="option.value">{{option.viewValue}}</mat-option>
+          </ng-template>
+        </mat-select>
+
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row " class="mr2 ml2 mt3" fxLayoutAlign="space-between start">
+    <div fxLayout="column wrap" class="p2 border mr4" fxFlex="70" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxFlex="50">
+        <canvas baseChart style="background:889EAF;" [datasets]="page.pieChartData" [labels]="page.pieChartLabels" [options]="page.pieChartOptions" [colors]="page.pieChartColor" chartType="pie"></canvas>
+      </div>
+      <div fxLayout="row wrap" class="ml2" fxLayoutAlign="start stretch" [fxShow]="true">
+        <h2 style="color:white;margin-left: 20px;">
+          Timesheet {{page.selectedMonthName}}-{{page.selectedYear}} status</h2>
+      </div>
+    </div>
+    <div fxLayout="column " fxFlex="30" fxLayoutGap="20px" fxLayoutAlign="center stretch" [fxShow]="true">
+      <div fxLayout="row " class="border-radius border dashboard-card p2" fxLayoutGap="10px" fxLayoutAlign="start center" [fxShow]="true" *ngFor="let card of page.cards">
+        <div fxLayout="column wrap" style="background: {{card.bgColor}}" class="card-icon" fxLayoutAlign="start stretch" [fxShow]="true">
+          <mat-icon class="card-mat-icon">{{card.cardIcon}}</mat-icon>
+        </div>
+        <div fxLayout="column wrap" class="ml2" fxLayoutAlign="start stretch" [fxShow]="true">
+          <h2 style="color:white; margin:0 0 10px;">
+            <span class="card-title-number"> {{card.cardTitleNum}} </span> <span style="color:#a3a3a3;"> {{card.cardTitle}} </span>
+          </h2>
+          <div fxLayout="row wrap" class="cursor-pointer white-label" fxLayoutGap="5px" fxLayoutAlign="start center" [fxShow]="true" [routerLink]="[&apos;/home/&apos;+card.cardRoutes]">
+            <mat-icon class="white-label">open_in_new</mat-icon>
+            <div>
+              {{card.cardTitle}} page
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

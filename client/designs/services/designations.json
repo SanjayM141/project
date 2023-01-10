@@ -1,0 +1,374 @@
+[
+    {
+        "id": "sd_g1X98PAngpHzUT5b",
+        "type": "tab",
+        "createdDate": "2022-12-29T11:23:42.643Z",
+        "label": "designations",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "designations",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_ICamTUoeRez99xGB",
+        "type": "Start",
+        "z": "sd_g1X98PAngpHzUT5b",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "get_designations",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "designationsresult",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            },
+            {
+                "key": "currentState",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "get_designations",
+        "category": "General",
+        "x": 85,
+        "y": 80,
+        "wires": [
+            [
+                "sd_seThFoXCC6NN6Moh"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "designations"
+    },
+    {
+        "id": "sd_St6aBzZ6bc3T7nRS",
+        "type": "HttpRequest",
+        "z": "sd_g1X98PAngpHzUT5b",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.getprojecturl",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "getprojecturl"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "",
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.input.designationsresult",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "designationsresult"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": [],
+        "paramsObj": {},
+        "paramMapping": "bh.local.is_active",
+        "paramMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "is_active"
+        },
+        "functionName": "sd_St6aBzZ6bc3T7nRS",
+        "category": "HTTP",
+        "x": 285,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "designations",
+        "generated": true
+    },
+    {
+        "id": "sd_seThFoXCC6NN6Moh",
+        "type": "Script",
+        "z": "sd_g1X98PAngpHzUT5b",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.getprojecturl = 'http://localhost:8081/api/admin/get_designation';\nbh.local.is_active = { is_active : bh.input.currentState };",
+        "functionName": "sd_seThFoXCC6NN6Moh",
+        "category": "Function",
+        "x": 185,
+        "y": 80,
+        "wires": [
+            [
+                "sd_St6aBzZ6bc3T7nRS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "designations",
+        "generated": true
+    },
+    {
+        "id": "sd_FFfZBUnJ6s7fylGM",
+        "type": "Start",
+        "z": "sd_g1X98PAngpHzUT5b",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "active_or_deactive_designations",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "designation_ids",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "is_active",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "active_or_deactive_designations",
+        "category": "General",
+        "x": 85,
+        "y": 180,
+        "wires": [
+            [
+                "sd_Sd2quDZfVjlEFsyv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "designations"
+    },
+    {
+        "id": "sd_Sd2quDZfVjlEFsyv",
+        "type": "Script",
+        "z": "sd_g1X98PAngpHzUT5b",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = 'http://localhost:8081/api/admin/active_or_deactive_designation';\nbh.local.body = { \n    designation_id : bh.input.designation_ids,\n    is_active : bh.input.is_active\n};",
+        "functionName": "sd_Sd2quDZfVjlEFsyv",
+        "category": "Function",
+        "x": 220,
+        "y": 180,
+        "wires": [
+            [
+                "sd_yBaIlY4X2bPEFnZH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "designations",
+        "generated": true
+    },
+    {
+        "id": "sd_yBaIlY4X2bPEFnZH",
+        "type": "HttpRequest",
+        "z": "sd_g1X98PAngpHzUT5b",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "put",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.input.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "result"
+        },
+        "headerMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": ""
+        },
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_yBaIlY4X2bPEFnZH",
+        "category": "HTTP",
+        "x": 325,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "designations",
+        "generated": true
+    },
+    {
+        "id": "sd_LraoTwMG4lQkD6NW",
+        "type": "Script",
+        "z": "sd_g1X98PAngpHzUT5b",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = 'http://localhost:8081/api/admin/add_or_update_designation';\nbh.local.body = { \n    designation: {\n        designation_id : bh.input.designation_id,\n        designation_name : bh.input.designation_name,\n        // designation_count : bh.input.designation_count,\n    }\n};",
+        "functionName": "sd_LraoTwMG4lQkD6NW",
+        "category": "Function",
+        "x": 240,
+        "y": 280,
+        "wires": [
+            [
+                "sd_ADeiVP9lXtg8wDnU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "designations",
+        "generated": true
+    },
+    {
+        "id": "sd_ADeiVP9lXtg8wDnU",
+        "type": "HttpRequest",
+        "z": "sd_g1X98PAngpHzUT5b",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.local.response",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "response"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_ADeiVP9lXtg8wDnU",
+        "category": "HTTP",
+        "x": 420,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "designations",
+        "generated": true
+    },
+    {
+        "id": "sd_v6XSNxFl3e3ZpRDy",
+        "type": "Start",
+        "z": "sd_g1X98PAngpHzUT5b",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "add_designations",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "designation_name",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "designation_count",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "designation_id",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "response",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "add_designations",
+        "category": "General",
+        "x": 85,
+        "y": 280,
+        "wires": [
+            [
+                "sd_LraoTwMG4lQkD6NW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "designations"
+    }
+]

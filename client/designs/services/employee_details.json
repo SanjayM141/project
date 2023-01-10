@@ -1,0 +1,117 @@
+[
+    {
+        "id": "sd_QNxCOa5ZMgTaoHtI",
+        "type": "tab",
+        "createdDate": "2022-12-27T06:04:10.640Z",
+        "label": "employee_details",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "employee_details",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_lC20Dv6aubOopna9",
+        "type": "Start",
+        "z": "sd_QNxCOa5ZMgTaoHtI",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "get_details_emp",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "get_details_emp",
+        "category": "General",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "sd_pKXkamSbOOxfp2xx"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "employee_details"
+    },
+    {
+        "id": "sd_pKXkamSbOOxfp2xx",
+        "type": "Script",
+        "z": "sd_QNxCOa5ZMgTaoHtI",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = 'http://localhost:8081/api/admin/get_details_for_add_employee';",
+        "functionName": "sd_pKXkamSbOOxfp2xx",
+        "category": "Function",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "sd_zMRgXdaTMHwypqgt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "employee_details",
+        "generated": true
+    },
+    {
+        "id": "sd_zMRgXdaTMHwypqgt",
+        "type": "HttpRequest",
+        "z": "sd_QNxCOa5ZMgTaoHtI",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_zMRgXdaTMHwypqgt",
+        "category": "HTTP",
+        "x": 305,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "employee_details",
+        "generated": true
+    }
+]

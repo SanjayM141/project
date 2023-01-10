@@ -1,0 +1,997 @@
+[
+    {
+        "id": "sd_IgzPsZd2Vai1XSgp",
+        "type": "tab",
+        "createdDate": "2022-12-14T07:53:09.705Z",
+        "label": "project_details",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 2,
+        "generateNext": true,
+        "serviceName": "project_detailsComponent"
+    },
+    {
+        "id": "sd_szVGdiASIrttizre",
+        "type": "OnInit",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_szVGdiASIrttizre",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_WO7dwimSblDlGkZF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "project_detailsComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_WO7dwimSblDlGkZF",
+        "type": "PageVariables",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "options",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "selectedProjects",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_WO7dwimSblDlGkZF",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            [
+                "sd_uqCccXS9cNkW4IWm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_TA7aJn0CZ3seClit",
+        "type": "AfterViewInit",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 140,
+        "wires": [
+            [
+                "sd_2DGIvJGuThextiC4"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "project_detailsComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_2DGIvJGuThextiC4",
+        "type": "ViewPicker",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatSort"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_xKCCTWKzvgDN0rx7_1",
+        "category": "Function",
+        "x": 185,
+        "y": 140,
+        "wires": [
+            [
+                "sd_3rV5WNHj2D9IIDom"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_3rV5WNHj2D9IIDom",
+        "type": "Script",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.tableData.sort = this.MatSort;",
+        "functionName": "sd_2VNGqvcKee34lvOz_1",
+        "category": "Function",
+        "x": 325,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_jsNsmQ8glTVgBzST",
+        "type": "PageVariables",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "tableData",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "dataSource"
+                }
+            }
+        ],
+        "functionName": "sd_E9QbOlnVduPNV5MO_2",
+        "category": "Function",
+        "x": 385,
+        "y": 40,
+        "wires": [
+            [
+                "sd_v6og16bUkfc9Jcfv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_uqCccXS9cNkW4IWm",
+        "type": "Script",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.dataSource = new MatTableDataSource([]);\npage.state = [\n   {value: true, viewValue: 'Yes'},\n   {value: false, viewValue: 'No'}\n ]\npage.selectedState = true; // Default",
+        "functionName": "sd_uqCccXS9cNkW4IWm",
+        "category": "Function",
+        "x": 280,
+        "y": 40,
+        "wires": [
+            [
+                "sd_jsNsmQ8glTVgBzST"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_LcG2GKIkO5AqpNWy",
+        "type": "Script",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const filterValue = (bh.input.filterEvent.target as HTMLInputElement).value.toLowerCase();\nbh.local.filteredIds = [];\npage.filteredData = page.tableData.filter(el => {\n    if(el.project_name.toLowerCase().includes(filterValue)){\n        bh.local.filteredIds.push(el.project_id)\n        return true;\n    };\n});\npage.all = (bh.local.filteredIds.length != 0) && bh.local.filteredIds.every(el => page.selectedProjects.includes(el));",
+        "functionName": "sd_iBlFYTlpoczCmWts_2",
+        "category": "Function",
+        "x": 205,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_rhRmhiG5gXxpsLn2",
+        "type": "PageStart",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "onFilter_2",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "filterEvent",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "onFilter_2",
+        "category": "General",
+        "x": 60,
+        "y": 360,
+        "wires": [
+            [
+                "sd_LcG2GKIkO5AqpNWy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "project_detailsComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_sS2P2QAK4f47qWdx",
+        "type": "PageStart",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "select_deselect_projects",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "currentProject",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "state",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "select_deselect_projects",
+        "category": "General",
+        "x": 100,
+        "y": 600,
+        "wires": [
+            [
+                "sd_TT9e653Ag5HrQFGE"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "project_detailsComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_TT9e653Ag5HrQFGE",
+        "type": "Script",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if(bh.input.state){\n    page.selectedProjects.push(bh.input.currentProject.project_id);\n}\nelse {\n    page.selectedProjects = page.selectedProjects.filter(el => {return el != bh.input.currentProject.project_id})\n}\npage.all = (page.selectedProjects.length == page.filteredData.length);",
+        "functionName": "sd_TT9e653Ag5HrQFGE",
+        "category": "Function",
+        "x": 225,
+        "y": 600,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_mNoz0ARvjsD5mwhg",
+        "type": "Script",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.is_active = !page.selectedState;",
+        "functionName": "sd_mNoz0ARvjsD5mwhg",
+        "category": "Function",
+        "x": 225,
+        "y": 700,
+        "wires": [
+            [
+                "sd_zBpnMPWBcadzbh6q"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_T8VZyTGfkqq6m5Oc",
+        "type": "PageStart",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "activate_deactivate_projects",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "activate_deactivate_projects",
+        "category": "General",
+        "x": 100,
+        "y": 700,
+        "wires": [
+            [
+                "sd_mNoz0ARvjsD5mwhg"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "project_detailsComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_3w3rsrJ5lXsbvIgp",
+        "type": "PageStart",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "selectAll",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "selectAll",
+        "category": "General",
+        "x": 105,
+        "y": 800,
+        "wires": [
+            [
+                "sd_vPmf9ixoFWsqfj36"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "project_detailsComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_vPmf9ixoFWsqfj36",
+        "type": "Script",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.selectedProjects = [];\nfor(let x of page.filteredData){\n    x.selected = bh.input.event.checked;\n    if(x.selected) page.selectedProjects.push(x.project_id);\n};",
+        "functionName": "sd_vPmf9ixoFWsqfj36",
+        "category": "Function",
+        "x": 230,
+        "y": 800,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_zBpnMPWBcadzbh6q",
+        "type": "PageCallService",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "act or deact project",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_cWyj4TV2hjnyIJSw",
+            "type": "tab",
+            "createdDate": "2022-12-28T17:09:49.533Z",
+            "label": "active_or_deactive_projects",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_VrC9gqyLQVqqdbRP",
+            "flowName": "active_or_deactive_projects"
+        },
+        "inputVariables": [
+            {
+                "key": "project_ids",
+                "map": true,
+                "valueType": "this.page",
+                "value": "selectedProjects"
+            },
+            {
+                "key": "is_active",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "is_active"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/active_or_deactive_projects",
+        "startName": "active_or_deactive_projects",
+        "inputParams": [
+            "this.page.selectedProjects",
+            "bh.local.is_active"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "actOrDeactProject",
+        "category": "General",
+        "x": 345,
+        "y": 700,
+        "wires": [
+            [
+                "sd_XAQs2EjSoMdw235u"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_JdKrHoXioaBd6dZ3",
+        "type": "PageStart",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "update_table",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "update_table",
+        "category": "General",
+        "x": 85,
+        "y": 260,
+        "wires": [
+            [
+                "sd_zAxsSnny6NSE9lQ9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "project_detailsComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_XmL7RXEefpcd9HZW",
+        "type": "PageCallService",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "get project ",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_zmuZl9ubfO2j26Ni",
+            "type": "tab",
+            "createdDate": "2022-12-27T09:39:34.278Z",
+            "label": "get_project",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_wLXXPjhNcvx7mEdQ",
+            "flowName": "get_project"
+        },
+        "inputVariables": [
+            {
+                "key": "projectresult",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            },
+            {
+                "key": "currentState",
+                "map": true,
+                "valueType": "this.page",
+                "value": "selectedState"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "projectresult",
+                "valueType": "bh.local",
+                "value": "get_project_response",
+                "mapVarName": "projectresult",
+                "localVar": "bh.local.get_project_response"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/get_project",
+        "startName": "get_project",
+        "inputParams": [
+            null,
+            "this.page.selectedState"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "getProject",
+        "category": "General",
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "sd_QphFjGEtC60pKZA3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_QphFjGEtC60pKZA3",
+        "type": "Script",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.project_details = bh.local.get_project_response.response;\npage.tableData = bh.local.project_details;\npage.filteredData = bh.local.project_details;",
+        "functionName": "sd_QphFjGEtC60pKZA3",
+        "category": "Function",
+        "x": 370,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_v6og16bUkfc9Jcfv",
+        "type": "PageCallService",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "Update table",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_IgzPsZd2Vai1XSgp",
+            "type": "tab",
+            "createdDate": "2022-12-14T07:53:09.705Z",
+            "label": "project_details",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 2
+        },
+        "flow": {
+            "flowId": "sd_JdKrHoXioaBd6dZ3",
+            "flowName": "update_table"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "update_table",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "updateTable",
+        "category": "General",
+        "x": 500,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false,
+        "serviceName": "project_detailsComponent"
+    },
+    {
+        "id": "sd_XAQs2EjSoMdw235u",
+        "type": "PageCallService",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "update table after act or deact",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_IgzPsZd2Vai1XSgp",
+            "type": "tab",
+            "createdDate": "2022-12-14T07:53:09.705Z",
+            "label": "project_details",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 2
+        },
+        "flow": {
+            "flowId": "sd_JdKrHoXioaBd6dZ3",
+            "flowName": "update_table"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "update_table",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "updateTableAfterActOrDeact",
+        "category": "General",
+        "x": 485,
+        "y": 700,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false,
+        "serviceName": "project_detailsComponent"
+    },
+    {
+        "id": "sd_zAxsSnny6NSE9lQ9",
+        "type": "Script",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.selectedProjects = [];\npage.all = false;",
+        "functionName": "sd_zAxsSnny6NSE9lQ9",
+        "category": "Function",
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "sd_XmL7RXEefpcd9HZW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_lzYxxoWByJQHTe9y",
+        "type": "PageStart",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open_popup",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "action",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "currentRecordData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "open_popup",
+        "category": "General",
+        "x": 85,
+        "y": 480,
+        "wires": [
+            [
+                "sd_LysdEE9X6qFDIdTb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "project_detailsComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_dyFnBfL5ZKrihyHb",
+        "type": "OpenDialog",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_1hOc77lKtHlAn5Fr",
+            "label": "resusable_popup"
+        },
+        "relativePath": "./resusable_popup",
+        "data": "bh.local.popupdata",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "\"\"",
+        "maxHeight": "this.page",
+        "minHeight": "this.page",
+        "width": "\"\"",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "bh.local.panelClass",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "bh.local.dataupdated",
+        "functionName": "sd_dyFnBfL5ZKrihyHb",
+        "category": "Dialog",
+        "x": 270,
+        "y": 480,
+        "wires": [
+            [],
+            [
+                "sd_E4M6ClKrXvqZERHV"
+            ],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "popupdata",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "str",
+                "value": "",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "bh.local",
+                "value": "panelClass",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "dataupdated",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_LysdEE9X6qFDIdTb",
+        "type": "Script",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.popupdata = {\n    action : bh.input.action,\n    popup_name : 'project',\n    data : bh.input.currentRecordData\n};\nbh.local.panelClass = ['project-popup', bh.input.action];",
+        "functionName": "sd_LysdEE9X6qFDIdTb",
+        "category": "Function",
+        "x": 170,
+        "y": 480,
+        "wires": [
+            [
+                "sd_dyFnBfL5ZKrihyHb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_E4M6ClKrXvqZERHV",
+        "type": "PageSwitch",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "dataupdated",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.dataupdated",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "functionName": "sd_E4M6ClKrXvqZERHV",
+        "category": "Function",
+        "x": 385,
+        "y": 480,
+        "wires": [
+            [
+                "sd_eU8zdIodPXfjwktw"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "project_detailsComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_eU8zdIodPXfjwktw",
+        "type": "PageCallService",
+        "z": "sd_IgzPsZd2Vai1XSgp",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "table update",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_IgzPsZd2Vai1XSgp",
+            "type": "tab",
+            "createdDate": "2022-12-14T07:53:09.705Z",
+            "label": "project_details",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 2
+        },
+        "flow": {
+            "flowId": "sd_JdKrHoXioaBd6dZ3",
+            "flowName": "update_table"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "update_table",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "tableUpdate",
+        "category": "General",
+        "x": 480,
+        "y": 480,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false,
+        "serviceName": "project_detailsComponent"
+    }
+]

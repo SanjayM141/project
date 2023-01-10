@@ -1,0 +1,18 @@
+<mat-progress-bar class="ts-spinner" *ngIf="page.commonservice.spinner" [mode]="&apos;indeterminate&apos;" color="&apos;#F36D37&apos;" value="50" bufferValue="75"></mat-progress-bar>
+<mat-sidenav-container class="height-100" autosize="true">
+  <mat-sidenav #sidenav #drawer opened="page.showlable" style="padding: 10px" [mode]="&apos;side&apos;" [position]>
+    <div fxLayout="column " fxLayoutAlign="none none" [fxShow]="true" fxFill="fxFill">
+      <div fxLayout="column wrap" class="mt1 mb2" fxLayoutAlign="start stretch" [fxShow]="true"><img imgSrc="/Web/full-logo.png" *ngIf="page.showlable == true" class="sidenav-logo-large"><img imgSrc="/Web/trans-logo.png" *ngIf="page.showlable == false" class="sidenav-logo"></div>
+      <bh-navigation_menu class="cursor-pointer" [showlable]="page.showlable"></bh-navigation_menu>
+    </div>
+  </mat-sidenav>
+  <div fxLayout="column wrap" fxLayoutAlign="start none" [fxShow]="true">
+    <div fxLayout="row wrap" class="p2 white-label border-bottom" fxLayoutAlign="space-between center" [fxShow]="true">
+      <mat-icon class="cursor-pointer" (click)="page.showlable = !page.showlable">menu</mat-icon>
+      <bh-header></bh-header>
+    </div>
+    <div fxLayout="column wrap" class="p2" fxLayoutAlign="start stretch" [fxShow]="true">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-sidenav-container>

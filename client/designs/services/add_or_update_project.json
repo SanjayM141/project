@@ -1,0 +1,126 @@
+[
+    {
+        "id": "sd_Hc0qTKh9zmt6TrEm",
+        "type": "tab",
+        "createdDate": "2022-12-30T08:51:49.409Z",
+        "label": "add_or_update_project",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "add_or_update_project",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_NRsHfPbly1AYsA15",
+        "type": "Start",
+        "z": "sd_Hc0qTKh9zmt6TrEm",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "add_or_update_project",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "projectValues",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "response",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "add_or_update_project",
+        "category": "General",
+        "x": 100,
+        "y": 180,
+        "wires": [
+            [
+                "sd_dl8q5501BYXPBZ36"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "add_or_update_project"
+    },
+    {
+        "id": "sd_dl8q5501BYXPBZ36",
+        "type": "Script",
+        "z": "sd_Hc0qTKh9zmt6TrEm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = 'http://localhost:8081/api/admin/add_or_update_project';\nif(!bh.input.projectValues.client_id){\n    bh.input.projectValues.client_id = 1; //No need for operation but req param in api\n}\nif(!bh.input.projectValues.project_id){\n    bh.input.projectValues.project_id = 0; //Add operation\n}\nbh.local.body = { projects : bh.input.projectValues };",
+        "functionName": "sd_dl8q5501BYXPBZ36",
+        "category": "Function",
+        "x": 220,
+        "y": 180,
+        "wires": [
+            [
+                "sd_TdTXwOv4Q1uBU16x"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "add_or_update_project",
+        "generated": true
+    },
+    {
+        "id": "sd_TdTXwOv4Q1uBU16x",
+        "type": "HttpRequest",
+        "z": "sd_Hc0qTKh9zmt6TrEm",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.input.response",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "response"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_TdTXwOv4Q1uBU16x",
+        "category": "HTTP",
+        "x": 340,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "add_or_update_project",
+        "generated": true
+    }
+]

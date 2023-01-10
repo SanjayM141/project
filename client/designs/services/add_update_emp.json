@@ -1,0 +1,132 @@
+[
+    {
+        "id": "sd_fC5enAPiMiCcXcjr",
+        "type": "tab",
+        "createdDate": "2023-01-03T13:02:31.646Z",
+        "label": "add_update_emp",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "add_update_emp",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_KbmtUuKD3NesgKKv",
+        "type": "Start",
+        "z": "sd_fC5enAPiMiCcXcjr",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "add_edit_employee",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "empData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "add_edit_employee",
+        "category": "General",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "sd_ZBFC9dWX5frdrmqz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "add_update_emp"
+    },
+    {
+        "id": "sd_ZBFC9dWX5frdrmqz",
+        "type": "Script",
+        "z": "sd_fC5enAPiMiCcXcjr",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = 'http://localhost:8081/api/admin/add_or_update_employee';\n// console.log(bh.input.empData)\nbh.local.body = {\n  \"employee\": {\n    \"employee_id\": 0,\n    \"employee_name\": bh.input.empData.first_name + ' ' + bh.input.empData.last_name,\n    \"employee_code\": JSON.stringify(bh.input.empData.employee_id),\n    \"reporting_manager\": bh.input.empData.reporting_managers,\n    \"employee_type_id\":bh.input.empData.employee_type,\n    \"designation_id\": bh.input.empData.designation,\n    \"email\": bh.input.empData.email,\n    \"password\": \"password@123\",\n    \"contact_no\": bh.input.empData.contact_no,\n    \"is_active\": true,\n    \"created_date\": bh.input.empData.start_date,\n    \"modified_date\": bh.input.empData.start_date,\n    \"start_date\": bh.input.empData.start_date\n  }\n}",
+        "functionName": "sd_ZBFC9dWX5frdrmqz",
+        "category": "Function",
+        "x": 225,
+        "y": 100,
+        "wires": [
+            [
+                "sd_mFuzRrwnVO8xRozq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "add_update_emp",
+        "generated": true
+    },
+    {
+        "id": "sd_mFuzRrwnVO8xRozq",
+        "type": "HttpRequest",
+        "z": "sd_fC5enAPiMiCcXcjr",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "post",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_mFuzRrwnVO8xRozq",
+        "category": "HTTP",
+        "x": 340,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "add_update_emp",
+        "generated": true
+    }
+]

@@ -1,0 +1,134 @@
+[
+    {
+        "id": "sd_cWyj4TV2hjnyIJSw",
+        "type": "tab",
+        "createdDate": "2022-12-28T17:09:49.533Z",
+        "label": "active_or_deactive_projects",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "active_or_deactive_projects",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_VrC9gqyLQVqqdbRP",
+        "type": "Start",
+        "z": "sd_cWyj4TV2hjnyIJSw",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "active_or_deactive_projects",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "project_ids",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "is_active",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "active_or_deactive_projects",
+        "category": "General",
+        "x": 125,
+        "y": 200,
+        "wires": [
+            [
+                "sd_n5K0nMbU1HbcPbCv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "active_or_deactive_projects"
+    },
+    {
+        "id": "sd_n5K0nMbU1HbcPbCv",
+        "type": "Script",
+        "z": "sd_cWyj4TV2hjnyIJSw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = 'http://localhost:8081/api/admin/active_or_deactive_projects';\nbh.local.body = { \n    project_id : bh.input.project_ids,\n    is_active : bh.input.is_active\n};",
+        "functionName": "sd_n5K0nMbU1HbcPbCv",
+        "category": "Function",
+        "x": 245,
+        "y": 200,
+        "wires": [
+            [
+                "sd_9OSswn0YFaY1TqCI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "active_or_deactive_projects",
+        "generated": true
+    },
+    {
+        "id": "sd_9OSswn0YFaY1TqCI",
+        "type": "HttpRequest",
+        "z": "sd_cWyj4TV2hjnyIJSw",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "put",
+        "methodMapping": "",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.local.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.input.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "result"
+        },
+        "headers": [],
+        "headersObj": {},
+        "headerMapping": "",
+        "headerMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": ""
+        },
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_9OSswn0YFaY1TqCI",
+        "category": "HTTP",
+        "x": 365,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "active_or_deactive_projects",
+        "generated": true
+    }
+]

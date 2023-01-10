@@ -1,0 +1,133 @@
+[
+    {
+        "id": "sd_4QKlAg4TRyFNXzEn",
+        "type": "tab",
+        "createdDate": "2022-12-28T04:39:50.493Z",
+        "label": "designation_api",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "designation_api",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_gpEpYlm9JmwKj7RC",
+        "type": "Start",
+        "z": "sd_4QKlAg4TRyFNXzEn",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "is_active",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "sd_gpEpYlm9JmwKj7RC",
+        "category": "General",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_RqiCMMwRc6wAE358"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "designation_api"
+    },
+    {
+        "id": "sd_RqiCMMwRc6wAE358",
+        "type": "Script",
+        "z": "sd_4QKlAg4TRyFNXzEn",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = 'http://localhost:8081/api/admin/get_designation';",
+        "functionName": "sd_RqiCMMwRc6wAE358",
+        "category": "Function",
+        "x": 185,
+        "y": 60,
+        "wires": [
+            [
+                "sd_7n4zuzzXC85itzLH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "designation_api",
+        "generated": true
+    },
+    {
+        "id": "sd_7n4zuzzXC85itzLH",
+        "type": "HttpRequest",
+        "z": "sd_4QKlAg4TRyFNXzEn",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {
+            "is_active": "true"
+        },
+        "paramsObj": [
+            {
+                "key": "is_active",
+                "defaultValue": "true"
+            }
+        ],
+        "paramMappingObj": {},
+        "functionName": "sd_7n4zuzzXC85itzLH",
+        "category": "HTTP",
+        "x": 305,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "designation_api",
+        "generated": true
+    }
+]

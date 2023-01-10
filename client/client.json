@@ -1,0 +1,13 @@
+{
+    "displayName": "Client",
+    "appName": "client",
+    "description": "TimeSheet Client Page",
+    "lastModified": "2022-12-13T09:10:26.364Z",
+    "imgSourcePath": "",
+    "version": "1.0.0",
+    "appType": "uiOnly",
+    "templateName": "blank",
+    "createDate": "2022-12-13T09:10:26.170Z",
+    "analyticsId": "91f5ae8c-8fd8-9f9f-eb44-ad3b301db50a",
+    "createdStudioVersion": "8.3.0"
+}

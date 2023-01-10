@@ -1,0 +1,127 @@
+[
+    {
+        "id": "sd_zmuZl9ubfO2j26Ni",
+        "type": "tab",
+        "createdDate": "2022-12-27T09:39:34.278Z",
+        "label": "get_project",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "get_project",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_wLXXPjhNcvx7mEdQ",
+        "type": "Start",
+        "z": "sd_zmuZl9ubfO2j26Ni",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "get_project",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "projectresult",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            },
+            {
+                "key": "currentState",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "get_project",
+        "category": "General",
+        "x": 105,
+        "y": 120,
+        "wires": [
+            [
+                "sd_E74exE9TjAuz0S4D"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "get_project"
+    },
+    {
+        "id": "sd_8G6iqV9c8RelunnY",
+        "type": "HttpRequest",
+        "z": "sd_zmuZl9ubfO2j26Ni",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.getprojecturl",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "getprojecturl"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.input.projectresult",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "projectresult"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "paramMapping": "bh.local.is_active",
+        "paramMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "is_active"
+        },
+        "functionName": "sd_8G6iqV9c8RelunnY",
+        "category": "HTTP",
+        "x": 305,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "get_project",
+        "generated": true
+    },
+    {
+        "id": "sd_E74exE9TjAuz0S4D",
+        "type": "Script",
+        "z": "sd_zmuZl9ubfO2j26Ni",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.getprojecturl = 'http://localhost:8081/api/admin/get_project';\nbh.local.is_active = { is_active : bh.input.currentState };",
+        "functionName": "sd_E74exE9TjAuz0S4D",
+        "category": "Function",
+        "x": 205,
+        "y": 120,
+        "wires": [
+            [
+                "sd_8G6iqV9c8RelunnY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "get_project",
+        "generated": true
+    }
+]

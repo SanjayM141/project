@@ -1,0 +1,106 @@
+<div fxLayout="column wrap" class="timesheet_summary" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+    <h2 style="color:white;margin-left: 20px;">
+      {{page.timesheetMonth}} Timesheet Status
+    </h2>
+  </div>
+  <div fxLayout="row " class="mb2 pl2 pr2" fxLayoutGap="20px" fxLayoutAlign="space-between stretch" [fxShow]="true">
+    <mat-card *ngFor="let option of page.cards" [ngClass]="option.cardType == &apos;total&apos; ? &apos;bg-joy-1&apos; : option.cardType == &apos;approved&apos; ? &apos;bg-joy-2&apos; : option.cardType == &apos;rejected&apos; ? &apos;bg-joy-3&apos; : &apos;bg-joy-4&apos;" class="center timesheet_cards">
+      <mat-card-title class="white-label text-bold">{{option.cardTitle}}</mat-card-title>
+
+      <mat-card-content>
+        <div class="text-bold">
+          <h1 class="card-title">{{option.cardLabel}}</h1>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxLayout="row wrap" class="pr2 pl2 profile-form" fxLayoutGap="20px" fxLayoutAlign="space-between center" [fxShow]="true">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+      <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput placeholder="Search" [required]="false" (keyup)="onFilter_2($event)">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-raised-button class="p2 update-btn" (click)="downloadCSV()">
+          <mat-icon>cloud_download</mat-icon> CSV
+        </button><button mat-raised-button class="p2" (click)="downloadXlsx()">
+          <mat-icon>pages</mat-icon> Excel
+        </button></div>
+    </div>
+  </div>
+  <div fxLayout="row wrap" class="p2" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="column" class="center black-label table">
+      <table mat-table [dataSource]="page?.tableData" class="table-width-fix">
+        <tr mat-header-row *matHeaderRowDef="[&apos;emp_id&apos;,&apos;emp_name&apos;,&apos;emp_type&apos;,&apos;emp_mail&apos;,&apos;repo_manager&apos;,&apos;nod_worked&apos;,&apos;nod_leaves&apos;,&apos;total_duration&apos;,&apos;approved_timeSheet&apos;,&apos;approval_image&apos;,&apos;d90d8295-3708-7aeb-0f1d-f5963eed4888&apos;]"></tr>
+        <tr mat-row *matRowDef="let row; columns: [&apos;emp_id&apos;,&apos;emp_name&apos;,&apos;emp_type&apos;,&apos;emp_mail&apos;,&apos;repo_manager&apos;,&apos;nod_worked&apos;,&apos;nod_leaves&apos;,&apos;total_duration&apos;,&apos;approved_timeSheet&apos;,&apos;approval_image&apos;,&apos;d90d8295-3708-7aeb-0f1d-f5963eed4888&apos;];"></tr>
+
+        <ng-container matColumnDef="emp_id">
+          <th mat-header-cell *matHeaderCellDef class="center text-bold table-color-white">Employee ID</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.emp_id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="emp_name">
+          <th mat-header-cell *matHeaderCellDef class="center text-bold table-color-white">Employee Name</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.emp_name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="emp_type">
+          <th mat-header-cell *matHeaderCellDef class="center text-bold table-color-white">Type</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.emp_type}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="emp_mail">
+          <th mat-header-cell *matHeaderCellDef class="table-color-white text-bold center">Mail ID</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.emp_mail}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="repo_manager">
+          <th mat-header-cell *matHeaderCellDef class="table-color-white text-bold center">Reporting Manager</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.repo_manager}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nod_worked">
+          <th mat-header-cell *matHeaderCellDef class="table-color-white text-bold center">No of days worked</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.nod_worked}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nod_leaves">
+          <th mat-header-cell *matHeaderCellDef class="table-color-white text-bold center">No of leaves Taken</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.nod_leaves}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="total_duration">
+          <th mat-header-cell *matHeaderCellDef class="table-color-white text-bold center">Total Duration</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.total_duration}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="approved_timeSheet">
+          <th mat-header-cell *matHeaderCellDef class="table-color-white text-bold center">Approved Timesheet</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.approved_timeSheet}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="approval_image">
+          <th mat-header-cell *matHeaderCellDef class="table-color-white text-bold center">Approval Image</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.approval_image}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="d90d8295-3708-7aeb-0f1d-f5963eed4888">
+          <th mat-header-cell *matHeaderCellDef class="table-color-white text-bold center">Timesheet Status</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="profile-form">
+            <mat-form-field style="width: 100px;" [appearance]="&apos;standard&apos;" [floatLabel]="&apos;auto&apos;">
+              <mat-select placeholder="Select Status" [required]="false">
+                <ng-template ngFor let-option [ngForOf]="page.timesheet_status" let-i="index">
+                  <mat-option [value]="option.value">{{option.viewValue}}</mat-option>
+                </ng-template>
+              </mat-select>
+
+            </mat-form-field>
+          </td>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+  <div fxLayout="row wrap" class="pl2" fxLayoutGap="20px" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-raised-button class="text-bold">Save Changes</button><button mat-raised-button class="reset-btn">cancel</button></div>
+</div>

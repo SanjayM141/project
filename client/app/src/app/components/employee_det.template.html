@@ -1,0 +1,35 @@
+<div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="row wrap" class="mt2 pr2" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-raised-button class="update-btn" (click)="open_popup(&apos;add&apos;)">
+      <mat-icon>add</mat-icon>Add
+    </button></div>
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="column" class="border-bottom-none center black-label table">
+      <table mat-table [dataSource]="page.emp_details" class="table-width-fix">
+        <tr mat-header-row *matHeaderRowDef="[&apos;employee_id&apos;,&apos;employee_name&apos;,&apos;contact_no&apos;,&apos;7c5d7404-7270-659d-8a61-5ff303ff5812&apos;]"></tr>
+        <tr mat-row *matRowDef="let row; columns: [&apos;employee_id&apos;,&apos;employee_name&apos;,&apos;contact_no&apos;,&apos;7c5d7404-7270-659d-8a61-5ff303ff5812&apos;];"></tr>
+
+        <ng-container matColumnDef="employee_id">
+          <th mat-header-cell *matHeaderCellDef class="center text-bold table-color-white">Employee Id</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.employee_id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="employee_name">
+          <th mat-header-cell *matHeaderCellDef class="center text-bold table-color-white">Employee Name</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.employee_name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="contact_no">
+          <th mat-header-cell *matHeaderCellDef class="text-bold table-color-white center">Contact Number</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.contact_no}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="7c5d7404-7270-659d-8a61-5ff303ff5812">
+          <th mat-header-cell *matHeaderCellDef class="center table-color-white text-bold">Action</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">
+            <mat-icon class="cursor-pointer white-label" (click)="open_popup(&apos;edit&apos;,table)">edit</mat-icon>
+          </td>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+</div>

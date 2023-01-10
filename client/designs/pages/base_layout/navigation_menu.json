@@ -1,0 +1,123 @@
+[
+    {
+        "id": "sd_oYONHQsrVOHK3oRb",
+        "type": "tab",
+        "createdDate": "2022-12-13T14:57:03.673Z",
+        "label": "navigation_menu",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "navigation_menuComponent"
+    },
+    {
+        "id": "sd_MXCErC1Ar6NgWHg6",
+        "type": "OnInit",
+        "z": "sd_oYONHQsrVOHK3oRb",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [
+            {
+                "key": "showlable",
+                "defaultValue": {
+                    "type": "any",
+                    "value": "true"
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "pageVariables": [],
+        "functionName": "sd_MXCErC1Ar6NgWHg6",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_cnBy4xbfSp2BiOAl"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "navigation_menuComponent"
+    },
+    {
+        "id": "sd_cnBy4xbfSp2BiOAl",
+        "type": "PageVariables",
+        "z": "sd_oYONHQsrVOHK3oRb",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_cnBy4xbfSp2BiOAl",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            [
+                "sd_dPUTta6FdGb0H0CO"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "navigation_menuComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_AxdFFtNPwyBxjlTS",
+        "type": "Script",
+        "z": "sd_oYONHQsrVOHK3oRb",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.menu = [\n    {\n        displayName: 'Dashboard',\n        iconName: 'desktop_windows',\n        route: 'dashbord',\n        designation: 'all',\n    },\n    {\n        displayName: 'Employees',\n        iconName: 'how_to_reg',\n        route: 'employee',\n        designation: 'admin',\n    },\n    {\n        displayName: 'HR Contact Info',\n        iconName: 'ballot',\n        route: 'entradasGADE',\n        designation: 'employee',\n    },\n    // {\n    //     displayName: 'Timesheet',\n    //     iconName: 'ballot',\n    //     route: 'todos',\n    //     designation: 'employee',\n    // },\n    {\n        displayName: 'Timesheet Summary',\n        iconName: 'ballot',\n        route: 'entradasGADE',\n        designation: 'employee',\n    },\n    {\n        displayName: 'Timesheet Status',\n        iconName: 'ballot',\n        route: 'timesheet-status',\n        designation: 'admin',\n    },\n    {\n        displayName: 'Client',\n        iconName: 'groups',\n        route: 'client',\n        designation: 'admin',\n    },\n    {\n        displayName: 'Projects',\n        iconName: 'description',\n        route: 'project_details',\n        designation: 'admin',\n    },\n    {\n        displayName: 'Job Title',\n        iconName: 'assignment_ind',\n        route: '/todos',\n        designation: 'admin',\n    },\n    {\n        displayName: 'Employee type',\n        iconName: 'format_list_bulleted',\n        route: 'employee_type',\n        designation: 'admin',\n    },\n    {\n        displayName: 'HR Contact Info',\n        iconName: 'contacts',\n        route: 'hr_contact',\n        designation: 'admin',\n    },\n    {\n        displayName: 'Employee Details',\n        iconName: 'how_to_reg',\n        route: 'employee_det',\n        designation: 'admin',\n    },\n];\n\npage.designation = bh.local.info.designation == 1 ? 'admin' : 'employee';",
+        "functionName": "sd_AxdFFtNPwyBxjlTS",
+        "category": "Function",
+        "x": 405,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "navigation_menuComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_dPUTta6FdGb0H0CO",
+        "type": "Storage",
+        "z": "sd_oYONHQsrVOHK3oRb",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "info"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "bh.local",
+            "value": "info"
+        },
+        "functionName": "sd_dPUTta6FdGb0H0CO",
+        "category": "Storage",
+        "x": 285,
+        "y": 40,
+        "wires": [
+            [
+                "sd_AxdFFtNPwyBxjlTS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "navigation_menuComponent",
+        "generated": true
+    }
+]

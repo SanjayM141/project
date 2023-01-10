@@ -1,0 +1,987 @@
+[
+    {
+        "id": "sd_eQtQfOkAPYAzsOFH",
+        "type": "tab",
+        "createdDate": "2023-01-03T13:41:50.790Z",
+        "label": "hr_contact_info",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "hr_contact_infoComponent"
+    },
+    {
+        "id": "sd_LrjnXiQH5YBiWaHo",
+        "type": "OnInit",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_LrjnXiQH5YBiWaHo",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 60,
+        "wires": [
+            [
+                "sd_srw6tqWS9NWG6rrk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_srw6tqWS9NWG6rrk",
+        "type": "PageVariables",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "options",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "selectedHrs",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_srw6tqWS9NWG6rrk",
+        "category": "Function",
+        "x": 195,
+        "y": 60,
+        "wires": [
+            [
+                "sd_ATCfT0fVJmBViv3K"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_WLOb8hVVP9pkMik0",
+        "type": "AfterViewInit",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 60,
+        "y": 170,
+        "wires": [
+            [
+                "sd_0qSMFZRLMt7dKbyX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_0qSMFZRLMt7dKbyX",
+        "type": "ViewPicker",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatSort"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_xKCCTWKzvgDN0rx7_1",
+        "category": "Function",
+        "x": 200,
+        "y": 170,
+        "wires": [
+            [
+                "sd_c0mf9A7FzlJCGGz3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_c0mf9A7FzlJCGGz3",
+        "type": "Script",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.tableData.sort = this.MatSort;",
+        "functionName": "sd_2VNGqvcKee34lvOz_1",
+        "category": "Function",
+        "x": 340,
+        "y": 170,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_YRUzSY8TfUTwVWe6",
+        "type": "PageVariables",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "tableData",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "dataSource"
+                }
+            }
+        ],
+        "functionName": "sd_E9QbOlnVduPNV5MO_2",
+        "category": "Function",
+        "x": 400,
+        "y": 70,
+        "wires": [
+            [
+                "sd_CURDlVq0JPJa3mQR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ATCfT0fVJmBViv3K",
+        "type": "Script",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.dataSource = new MatTableDataSource([]);\npage.state = [\n   {value: true, viewValue: 'Yes'},\n   {value: false, viewValue: 'No'}\n ]\npage.selectedState = true; // Default",
+        "functionName": "sd_ATCfT0fVJmBViv3K",
+        "category": "Function",
+        "x": 295,
+        "y": 70,
+        "wires": [
+            [
+                "sd_YRUzSY8TfUTwVWe6"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_jiisoXXdBHmHBb6u",
+        "type": "Script",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const filterValue = (bh.input.filterEvent.target as HTMLInputElement).value.toLowerCase();\nbh.local.filteredIds = [];\npage.filteredData = page.tableData.filter(el => {\n    if(el.hr_name.toLowerCase().includes(filterValue)){\n        bh.local.filteredIds.push(el.hr_id)\n        return true;\n    };\n});\npage.all = (bh.local.filteredIds.length != 0) && bh.local.filteredIds.every(el => page.selectedHrs.includes(el));",
+        "functionName": "sd_iBlFYTlpoczCmWts_2",
+        "category": "Function",
+        "x": 220,
+        "y": 390,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_RIMR0aLO9tIFyfUS",
+        "type": "PageStart",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "onFilter_2",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "filterEvent",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "onFilter_2",
+        "category": "General",
+        "x": 75,
+        "y": 390,
+        "wires": [
+            [
+                "sd_jiisoXXdBHmHBb6u"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_DZGUCkF4FEkkvQ50",
+        "type": "PageStart",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "update_table",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "update_table",
+        "category": "General",
+        "x": 85,
+        "y": 280,
+        "wires": [
+            [
+                "sd_IuMS4MprjGXP4z9W"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_UQ8HRJvYhVFI8ohA",
+        "type": "PageCallService",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "get_hr_details",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_EHFBoAHQE5qcm1MD",
+            "type": "tab",
+            "createdDate": "2022-12-30T06:00:59.161Z",
+            "label": "get_hr_info",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_x3QnbSfP3LwrQhTl",
+            "flowName": "get_hr_details"
+        },
+        "inputVariables": [
+            {
+                "key": "is_active",
+                "map": true,
+                "valueType": "this.page",
+                "value": "selectedState"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "bh.local",
+                "value": "get_hr_response",
+                "mapVarName": "result",
+                "localVar": "bh.local.get_hr_response"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/get_hr_info",
+        "startName": "get_hr_details",
+        "inputParams": [
+            "this.page.selectedState"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "get_hr_details",
+        "category": "General",
+        "x": 285,
+        "y": 280,
+        "wires": [
+            [
+                "sd_gjj9glcv62CSDhVq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent"
+    },
+    {
+        "id": "sd_gjj9glcv62CSDhVq",
+        "type": "Script",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.hr_details = bh.local.get_hr_response.response;\npage.tableData = bh.local.hr_details;\npage.filteredData = bh.local.hr_details;",
+        "functionName": "sd_gjj9glcv62CSDhVq",
+        "category": "Function",
+        "x": 385,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_CURDlVq0JPJa3mQR",
+        "type": "PageCallService",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "Update table",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_eQtQfOkAPYAzsOFH",
+            "type": "tab",
+            "createdDate": "2023-01-03T13:41:50.790Z",
+            "label": "hr_contact_info",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_DZGUCkF4FEkkvQ50",
+            "flowName": "update_table"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "update_table",
+        "inputParams": [],
+        "accept_csd": false,
+        "functionName": "updateTable",
+        "category": "General",
+        "x": 515,
+        "y": 70,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent"
+    },
+    {
+        "id": "sd_IuMS4MprjGXP4z9W",
+        "type": "Script",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.selectedHrs = [];\npage.all = false;",
+        "functionName": "sd_IuMS4MprjGXP4z9W",
+        "category": "Function",
+        "x": 185,
+        "y": 280,
+        "wires": [
+            [
+                "sd_UQ8HRJvYhVFI8ohA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ZzfWoNCb0wOGC8AT",
+        "type": "PageStart",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open_popup",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "action",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "currentRecordData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "open_popup",
+        "category": "General",
+        "x": 85,
+        "y": 500,
+        "wires": [
+            [
+                "sd_sdYgNJgAoqdTGBP4"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_UJdeDRzHFOuiimfM",
+        "type": "OpenDialog",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_1hOc77lKtHlAn5Fr",
+            "label": "resusable_popup"
+        },
+        "relativePath": "./resusable_popup",
+        "data": "bh.local.popupdata",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "\"\"",
+        "maxHeight": "this.page",
+        "minHeight": "this.page",
+        "width": "\"\"",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "bh.local.panelClass",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "bh.local.dataupdated",
+        "functionName": "sd_UJdeDRzHFOuiimfM",
+        "category": "Dialog",
+        "x": 270,
+        "y": 500,
+        "wires": [
+            [],
+            [
+                "sd_TAz3GeefONmboogg"
+            ],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "popupdata",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "str",
+                "value": "",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "bh.local",
+                "value": "panelClass",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "dataupdated",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent"
+    },
+    {
+        "id": "sd_sdYgNJgAoqdTGBP4",
+        "type": "Script",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.popupdata = {\n    action : bh.input.action,\n    popup_name : 'hr contact info',\n    data : bh.input.currentRecordData\n};\nbh.local.panelClass = ['hr-popup', bh.input.action];",
+        "functionName": "sd_sdYgNJgAoqdTGBP4",
+        "category": "Function",
+        "x": 170,
+        "y": 500,
+        "wires": [
+            [
+                "sd_UJdeDRzHFOuiimfM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_TAz3GeefONmboogg",
+        "type": "PageSwitch",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "dataupdated",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.dataupdated",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "functionName": "sd_TAz3GeefONmboogg",
+        "category": "Function",
+        "x": 365,
+        "y": 500,
+        "wires": [
+            [
+                "sd_UkmJMZpg0MtHDOaK"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_UkmJMZpg0MtHDOaK",
+        "type": "PageCallService",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "table update",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_eQtQfOkAPYAzsOFH",
+            "type": "tab",
+            "createdDate": "2023-01-03T13:41:50.790Z",
+            "label": "hr_contact_info",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_DZGUCkF4FEkkvQ50",
+            "flowName": "update_table"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "update_table",
+        "inputParams": [],
+        "accept_csd": false,
+        "functionName": "tableUpdate",
+        "category": "General",
+        "x": 460,
+        "y": 500,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent"
+    },
+    {
+        "id": "sd_6I7TXfKtfGyNmR69",
+        "type": "PageStart",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "select_deselect_hr",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "currentHr",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "state",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "select_deselect_hr",
+        "category": "General",
+        "x": 85,
+        "y": 600,
+        "wires": [
+            [
+                "sd_urGMDARY22Fi6NE0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_urGMDARY22Fi6NE0",
+        "type": "Script",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if(bh.input.state){\n    page.selectedHrs.push(bh.input.currentHr.hr_id);\n}\nelse {\n    page.selectedHrs = page.selectedHrs.filter(el => {return el != bh.input.currentHr.hr_id})\n}\npage.all = (page.selectedHrs.length == page.filteredData.length);",
+        "functionName": "sd_urGMDARY22Fi6NE0",
+        "category": "Function",
+        "x": 210,
+        "y": 600,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_uHGmrLOUWIJrPp4H",
+        "type": "Script",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.is_active = !page.selectedState;",
+        "functionName": "sd_uHGmrLOUWIJrPp4H",
+        "category": "Function",
+        "x": 210,
+        "y": 700,
+        "wires": [
+            [
+                "sd_rbEcuYY5doPRhRUX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_E2I074pcD7JX38oT",
+        "type": "PageStart",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "activate_deactivate_hr",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "activate_deactivate_hr",
+        "category": "General",
+        "x": 85,
+        "y": 700,
+        "wires": [
+            [
+                "sd_uHGmrLOUWIJrPp4H"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_1nMq2wdYGUt5NdaB",
+        "type": "PageStart",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "selectAll",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "selectAll",
+        "category": "General",
+        "x": 90,
+        "y": 800,
+        "wires": [
+            [
+                "sd_2Ith2ZR5erqamaJ7"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_2Ith2ZR5erqamaJ7",
+        "type": "Script",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.selectedHrs = [];\nfor(let x of page.filteredData){\n    x.selected = bh.input.event.checked;\n    if(x.selected) page.selectedHrs.push(x.hr_id);\n};",
+        "functionName": "sd_2Ith2ZR5erqamaJ7",
+        "category": "Function",
+        "x": 215,
+        "y": 800,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_rbEcuYY5doPRhRUX",
+        "type": "PageCallService",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "act or deact hr",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_EHFBoAHQE5qcm1MD",
+            "type": "tab",
+            "createdDate": "2022-12-30T06:00:59.161Z",
+            "label": "get_hr_info",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_8W0o8JhX4xDBHvhV",
+            "flowName": "active_or_deactive_hr_contact_info"
+        },
+        "inputVariables": [
+            {
+                "key": "hr_ids",
+                "map": true,
+                "valueType": "this.page",
+                "value": "selectedHrs"
+            },
+            {
+                "key": "is_active",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "is_active"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/get_hr_info",
+        "startName": "active_or_deactive_hr_contact_info",
+        "inputParams": [
+            "this.page.selectedHrs",
+            "bh.local.is_active"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "actOrDeactHr",
+        "category": "General",
+        "x": 330,
+        "y": 700,
+        "wires": [
+            [
+                "sd_dmGEGrkKB4WUGjV2"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent"
+    },
+    {
+        "id": "sd_dmGEGrkKB4WUGjV2",
+        "type": "PageCallService",
+        "z": "sd_eQtQfOkAPYAzsOFH",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "update table after act or deact",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_eQtQfOkAPYAzsOFH",
+            "type": "tab",
+            "createdDate": "2023-01-03T13:41:50.790Z",
+            "label": "hr_contact_info",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_DZGUCkF4FEkkvQ50",
+            "flowName": "update_table"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "update_table",
+        "inputParams": [],
+        "accept_csd": false,
+        "functionName": "updateTableAfterActOrDeact",
+        "category": "General",
+        "x": 470,
+        "y": 700,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false,
+        "serviceName": "hr_contact_infoComponent"
+    }
+]

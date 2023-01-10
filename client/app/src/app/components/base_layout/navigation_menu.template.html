@@ -1,0 +1,53 @@
+<div fxLayout="column wrap" class="inactive-menu" fxLayoutAlign="start stretch" [fxShow]="true" *ngFor="let menu of page.menu">
+  <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="menu.designation == page.designation || menu.designation == &apos;all&apos;">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="menu.children &amp;&amp; menu.children.length &gt; 0">
+      <div>
+        <!-- <div *ngIf='!showlable' style="padding: 15px 10px">
+	<div class="dropdown">
+		<mat-icon class="dropbtn">{{menu.iconName}}</mat-icon>
+        <div class="dropdown-content">
+            <span *ngFor="let child of menu.children">
+                <a href="#">{{child.displayName}}</a>
+            </span>
+        </div>
+	</div>
+</div> -->
+        <mat-icon *ngIf="!showlable" style="padding: 15px 10px">{{menu.iconName}}</mat-icon>
+        <mat-accordion *ngIf="showlable">
+          <mat-expansion-panel class="sub-expansion-panel" style="box-shadow: none; background: #111827; padding: 0 10px">
+            <mat-expansion-panel-header style="padding: 0; background: #111827;">
+              <mat-panel-title>
+                <!-- Cabeceras del submenu -->
+                <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px" style="color: #fff">
+                  <mat-icon>{{menu.iconName}}</mat-icon>
+                  <p *ngIf="showlable">{{menu.displayName}}</p>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <span *ngFor="let child of menu.children">
+            <mat-list-item [routerLink]="[child.route]">
+            <!-- Entradas de cada submenú  -->
+                <div fxLayout="row" fxLayoutAlign="start" class="subMenu"> 
+                    <mat-icon style="padding-right:10px">{{child.iconName}}</mat-icon>
+                    {{child.displayName}}
+                </div>
+            </mat-list-item>
+        </span>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!menu.children || menu.children.length === 0">
+      <div>
+      </div>
+      <div fxLayout="row wrap" style="padding: 0 10px" fxLayoutGap="10px" fxLayoutAlign="start center" [fxShow]="true" routerLink="[menu.route]" [routerLink]="menu.route">
+        <mat-icon style="padding: 16px 0;">{{menu.iconName}}</mat-icon>
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+          <p *ngIf="showlable">
+            {{menu.displayName}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+{
+    "routes": [
+        {
+            "path": "login",
+            "component": "loginComponent",
+            "canActivate": {
+                "edited": true,
+                "value": ""
+            }
+        },
+        {
+            "path": "home",
+            "component": "homeComponent",
+            "children": [
+                {
+                    "path": "profile",
+                    "component": "profileComponent"
+                },
+                {
+                    "path": "employee",
+                    "component": "employeesComponent"
+                },
+                {
+                    "path": "project_details",
+                    "component": "project_detailsComponent"
+                },
+                {
+                    "path": "dashbord",
+                    "component": "dashboardComponent"
+                },
+                {
+                    "component": "job_titleComponent",
+                    "path": "designations"
+                },
+                {
+                    "path": "hr_contact",
+                    "component": "hr_contact_infoComponent"
+                },
+                {
+                    "path": "client",
+                    "component": "clientComponent"
+                },
+                {
+                    "path": "employee_type",
+                    "component": "employee_typeComponent"
+                },
+                {
+                    "path": "todos",
+                    "component": "employees_tempComponent"
+                },
+                {
+                    "path": "employee_det",
+                    "component": "employee_detComponent"
+                }
+            ],
+            "canActivate": {
+                "edited": true,
+                "value": "authService"
+            }
+        },
+        {
+            "path": "todos",
+            "component": "employees_tempComponent"
+        },
+        {
+            "path": "''",
+            "redirectTo": "login",
+            "pathMatch": "full",
+            "default": true
+        },
+        {
+            "path": "**",
+            "component": "PageNotFoundComponent"
+        }
+    ]
+}

@@ -1,0 +1,115 @@
+<header>
+  <div fxLayout="row wrap" class="font-20 bold white-label" fxLayoutAlign="space-between stretch" [fxShow]="true">
+    <div class="bold font-20 add-employee-header">
+      {{page.header}}
+    </div>
+    <mat-icon class="cursor-pointer closeicon" (click)="close_popup()">close</mat-icon>
+  </div>
+</header>
+<form [formGroup]="page.add_employee_form" autocomplete="off" class="bold font-12 employee-form" (ngSubmit)="add_employee()">
+  <div fxLayout="row wrap" class="employee-popup" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="label">
+        Employee Code</div>
+      <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput name="employee_id" type="text" placeholder="Employee code" [required]="true" formControlName="employee_id">
+
+      </mat-form-field><span *ngIf="page.add_employee_form.get(&apos;employee_id&apos;).touched &amp;&amp; page.add_employee_form.get(&apos;employee_id&apos;).hasError(&apos;required&apos;)" class="error font-10">
+                Please enter Employee Code</span><span *ngIf="page.add_employee_form.get(&apos;employee_id&apos;).touched &amp;&amp; page.add_employee_form.get(&apos;employee_id&apos;).hasError(&apos;pattern&apos;)" class="error font-10">
+                Please enter a number</span>
+    </div>
+    <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="label">
+        First Name</div>
+      <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput name="first_name" type="text" placeholder="First Name" [required]="true" formControlName="first_name">
+
+      </mat-form-field><span *ngIf="page.add_employee_form.get(&apos;first_name&apos;).touched &amp;&amp; page.add_employee_form.get(&apos;first_name&apos;).hasError(&apos;required&apos;)" class="error font-10">
+                Please enter First Name</span>
+    </div>
+    <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="label">
+        Last Name</div>
+      <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput name="last_name" type="text" placeholder="Last Name" [required]="true" formControlName="last_name">
+
+      </mat-form-field><span *ngIf="page.add_employee_form.get(&apos;last_name&apos;).touched &amp;&amp; page.add_employee_form.get(&apos;last_name&apos;).hasError(&apos;required&apos;)" class="error font-10">
+                Please enter Last Name</span>
+    </div>
+    <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="label">
+        Type</div>
+      <mat-form-field class="profile-form selectbox" [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;">
+        <mat-select formControlName="employee_type" panelClass="dark-panel" placeholder="Select" [required]="false" name="employee_type">
+          <ng-template ngFor let-option [ngForOf]="page.employee_type" let-i="index">
+            <mat-option [value]="option.employee_type_id">{{option.employee_type_name}}</mat-option>
+          </ng-template>
+        </mat-select>
+
+      </mat-form-field><span *ngIf="page.add_employee_form.get(&apos;employee_type&apos;).touched &amp;&amp; page.add_employee_form.get(&apos;employee_type&apos;).hasError(&apos;required&apos;)" class="error font-10">
+                Please select Employee Type</span>
+    </div>
+    <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="label">
+        Joining Date</div>
+      <mat-form-field class="date-field width-100" [appearance]="&apos;fill&apos;">
+        <input matInput placeholder="Joining Date" [matDatepicker]="pickerjoin" formControlName="start_date" name="joining date" [max]="page.today" [required]="false" [disabled]="false">
+        <mat-datepicker-toggle matSuffix [for]="pickerjoin" disabled="false"></mat-datepicker-toggle>
+        <mat-datepicker #pickerjoin [disabled]="false"></mat-datepicker>
+
+      </mat-form-field>
+    </div>
+    <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="label">
+        Designation</div>
+      <mat-form-field class="profile-form selectbox" [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;">
+        <mat-select formControlName="designation" panelClass="dark-panel" placeholder="Select" [required]="false" name="designation">
+          <ng-template ngFor let-option [ngForOf]="page.designation_list" let-i="index">
+            <mat-option [value]="option.designation_id">{{option.designation_name}}</mat-option>
+          </ng-template>
+        </mat-select>
+
+      </mat-form-field><span *ngIf="page.add_employee_form.get(&apos;designation&apos;).touched &amp;&amp; page.add_employee_form.get(&apos;designation&apos;).hasError(&apos;required&apos;)" class="error font-10">
+                Please select Designation</span>
+    </div>
+    <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="label">
+        Reporting Manager</div>
+      <mat-form-field class="profile-form selectbox" [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;">
+        <mat-select formControlName="reporting_managers" panelClass="dark-panel" placeholder="Select" [required]="false" name="reporting_managers">
+          <ng-template ngFor let-option [ngForOf]="page.managers_list" let-i="index">
+            <mat-option [value]="option.employee_name">{{option.employee_name}}</mat-option>
+          </ng-template>
+        </mat-select>
+
+      </mat-form-field>
+    </div>
+  </div>
+  <header class="mt2 bold font-18 white-label">
+    <div class="subheader font-14 bold">
+      Contact Info :</div>
+  </header>
+  <div fxLayout="row wrap" class="mt2 employee-popup" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="label">
+        Email ID</div>
+      <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput name="email" placeholder="Email ID" [required]="true" formControlName="email">
+
+      </mat-form-field><span *ngIf="page.add_employee_form.get(&apos;email&apos;).touched &amp;&amp; page.add_employee_form.get(&apos;email&apos;).hasError(&apos;required&apos;)" class="error font-10">
+                Please enter Email ID</span><span *ngIf="page.add_employee_form.get(&apos;email&apos;).touched &amp;&amp; page.add_employee_form.get(&apos;email&apos;).hasError(&apos;email&apos;)" class="error font-10">
+                Please enter a valid Email Id</span>
+    </div>
+    <div fxLayout="column wrap" class="field" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="label">
+        Contact No</div>
+      <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+        <input matInput name="contact_no" placeholder="Contact No" [required]="true" formControlName="contact_no">
+
+      </mat-form-field><span *ngIf="page.add_employee_form.get(&apos;contact_no&apos;).touched &amp;&amp; page.add_employee_form.get(&apos;contact_no&apos;).hasError(&apos;required&apos;)" class="error font-10">
+                Please enter Contact Number</span><span *ngIf="page.add_employee_form.get(&apos;contact_no&apos;).touched &amp;&amp; page.add_employee_form.get(&apos;contact_no&apos;).hasError(&apos;pattern&apos;)" class="error font-10">
+                Please enter a valid Contact Number</span>
+    </div>
+  </div>
+  <div fxLayout="row wrap" class="button-container" fxLayoutGap="20px" fxLayoutAlign="end center" [fxShow]="true"><button mat-button class="reset-btn cancel-btn" (click)="close_popup()" type="button">Cancel</button><button mat-button class="update-btn" [disabled]="!page.add_employee_form.valid" type="submit">Confirm</button></div>
+</form>

@@ -1,0 +1,67 @@
+<div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+    <h2 style="color:white;margin-left: 20px;">
+      EMPLOYEE TYPE</h2>
+  </div>
+  <div fxLayout="row wrap" class="pl2 profile-form" fxLayoutGap="20px" fxLayoutAlign="start center" [fxShow]="true">
+    <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+      <input matInput placeholder="Search" [required]="false" (keyup)="onFilter_2($event)">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <div fxLayout="column wrap" style="color:#fff;" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="row wrap" class="profile-form" fxLayoutGap="20px" fxLayoutAlign="start center" [fxShow]="true">
+        <div class="active-label">
+          Active:</div>
+        <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+          <mat-select placeholder="Select" [(ngModel)]="page.selectedState" [required]="false" (selectionChange)="update_table()" autoComplete="off">
+            <ng-template ngFor let-option [ngForOf]="page.state" let-i="index">
+              <mat-option [value]="option.value">{{option.viewValue}}</mat-option>
+            </ng-template>
+          </mat-select>
+
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-raised-button class="toolbar-btn update-btn text-bold" *ngIf="page.selectedTypes.length != 0" (click)="activate_deactivate_types()">{{page.selectedState?&apos;Deactivate&apos; :&apos;Activate&apos;}}</button></div>
+  </div>
+  <div fxLayout="row wrap" class="p2" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="column" class="border-bottom-none center black-label table">
+      <table mat-table [dataSource]="page.filteredData" class="table-width-fix">
+        <tr mat-header-row *matHeaderRowDef="[&apos;8ee9e03e-68e4-5b5d-ccf2-f035bc837a46&apos;,&apos;employee_type_name&apos;,&apos;count&apos;,&apos;4ba85986-9a87-1677-3da8-8f16f5de6ee7&apos;]"></tr>
+        <tr mat-row *matRowDef="let row; columns: [&apos;8ee9e03e-68e4-5b5d-ccf2-f035bc837a46&apos;,&apos;employee_type_name&apos;,&apos;count&apos;,&apos;4ba85986-9a87-1677-3da8-8f16f5de6ee7&apos;];"></tr>
+
+        <ng-container matColumnDef="8ee9e03e-68e4-5b5d-ccf2-f035bc837a46">
+          <th mat-header-cell *matHeaderCellDef class="text-bold table-color-white center">
+            <mat-checkbox class="white-checkbox" (change)="this.selectAll($event)" [(ngModel)]="page.all"></mat-checkbox>Employee Type ID
+          </th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">
+            <mat-checkbox class="white-checkbox" [(ngModel)]="table.selected" (change)="select_deselect_types(table,$event.checked)" [required]="false"></mat-checkbox>
+            <div>
+              {{table.employee_type_id}}
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="employee_type_name">
+          <th mat-header-cell *matHeaderCellDef class="center text-bold table-color-white">Employee Type</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.employee_type_name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="count">
+          <th mat-header-cell *matHeaderCellDef class="center text-bold table-color-white">No of Employees</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">{{table.count}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="4ba85986-9a87-1677-3da8-8f16f5de6ee7">
+          <th mat-header-cell *matHeaderCellDef class="center text-bold table-color-white">Action</th>
+          <td mat-cell *matCellDef="let table; let i = index;" class="table-color-white">
+            <mat-icon class="cursor-pointer white-label" (click)="open_popup(&apos;edit&apos;,table)">edit</mat-icon>
+          </td>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+  <div fxLayout="row wrap" class="mt2 pr2" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-raised-button class="update-btn" (click)="open_popup(&apos;add&apos;)">
+      <mat-icon>add</mat-icon>Add
+    </button></div>
+</div>

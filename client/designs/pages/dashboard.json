@@ -1,0 +1,747 @@
+[
+    {
+        "id": "sd_IyJUlDA3NIR4nfbm",
+        "type": "tab",
+        "createdDate": "2022-12-14T07:47:31.097Z",
+        "label": "dashboard",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "dashboardComponent"
+    },
+    {
+        "id": "sd_D4PJgJdNp4EP4yNi",
+        "type": "OnInit",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_D4PJgJdNp4EP4yNi",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_314z6yzKG3mbXEvP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dashboardComponent"
+    },
+    {
+        "id": "sd_314z6yzKG3mbXEvP",
+        "type": "PageVariables",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "barChartLabels",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "barChartLabels"
+                }
+            },
+            {
+                "textIp": "barChartData",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "barChartData"
+                }
+            },
+            {
+                "textIp": "sverticalbarChartData",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "sverticalbarChartData"
+                }
+            },
+            {
+                "textIp": "recordsState",
+                "typedIpValue": {
+                    "type": "str",
+                    "value": "true"
+                }
+            },
+            {
+                "textIp": "chartReady",
+                "typedIpValue": {
+                    "type": "str",
+                    "value": "true"
+                }
+            }
+        ],
+        "functionName": "sd_314z6yzKG3mbXEvP",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            [
+                "sd_JwS6rHWltjELv8Hh"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_6ZuIpg8P2Jpog4BM",
+        "type": "Script",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const employeLength = bh.local.employeeresult.response.length;\nconst clientLength = bh.local.clientresult.response.length;\nconst projectLength = bh.local.projectresult.response.length;\n// cards data\npage.cards = [\n  {\n    cardTitle: 'Clients', cardTitleNum: clientLength, cardIcon: 'how_to_reg', bgColor: '#F36D37', cardRoutes: 'client',\n  }\n  ,\n  {\n    cardTitle: 'Projects', cardTitleNum: projectLength, cardIcon: 'folder_special', bgColor: '#6E8D41', cardRoutes: 'project_details',\n  }\n  ,\n  {\n    cardTitle: 'Employees', cardTitleNum: employeLength, cardIcon: 'person', bgColor: '#7D358C', cardRoutes: 'employee',\n  }\n  ,\n];\n\n\n// pai chart\n",
+        "functionName": "sd_6ZuIpg8P2Jpog4BM",
+        "category": "Function",
+        "x": 665,
+        "y": 40,
+        "wires": [
+            [
+                "sd_rPCVJR28NtMwvh4D"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_vVPTefzPGPrnBC13",
+        "type": "PageStart",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "mycharclick",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "mycharclick",
+        "category": "General",
+        "x": 65,
+        "y": 140,
+        "wires": [
+            [
+                "sd_W92nFxpSQEYP2ZNN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dashboardComponent"
+    },
+    {
+        "id": "sd_W92nFxpSQEYP2ZNN",
+        "type": "Script",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "alert(\"chart clicked\");",
+        "functionName": "sd_W92nFxpSQEYP2ZNN",
+        "category": "Function",
+        "x": 230,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_JwS6rHWltjELv8Hh",
+        "type": "PageCallService",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "Client Data",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_35TZRpoubNqfddNl",
+            "type": "tab",
+            "createdDate": "2022-12-29T09:52:58.437Z",
+            "label": "client",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_xHynuERzkebxu5PA",
+            "flowName": "get_client"
+        },
+        "inputVariables": [
+            {
+                "key": "clientresult",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            },
+            {
+                "key": "currentState",
+                "map": true,
+                "valueType": "this.page",
+                "value": "recordsState"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "clientresult",
+                "valueType": "bh.local",
+                "value": "clientresult",
+                "mapVarName": "clientresult",
+                "localVar": "bh.local.clientresult"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/client",
+        "startName": "get_client",
+        "inputParams": [
+            null,
+            "this.page.recordsState"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "clientData",
+        "category": "General",
+        "x": 365,
+        "y": 40,
+        "wires": [
+            [
+                "sd_7v1aQ0ONwRKUHNbz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_7v1aQ0ONwRKUHNbz",
+        "type": "PageCallService",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "Project Data",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_zmuZl9ubfO2j26Ni",
+            "type": "tab",
+            "createdDate": "2022-12-27T09:39:34.278Z",
+            "label": "get_project",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_wLXXPjhNcvx7mEdQ",
+            "flowName": "get_project"
+        },
+        "inputVariables": [
+            {
+                "key": "projectresult",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            },
+            {
+                "key": "currentState",
+                "map": true,
+                "valueType": "this.page",
+                "value": "recordsState"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "projectresult",
+                "valueType": "bh.local",
+                "value": "projectresult",
+                "mapVarName": "projectresult",
+                "localVar": "bh.local.projectresult"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/get_project",
+        "startName": "get_project",
+        "inputParams": [
+            null,
+            "this.page.recordsState"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "projectData",
+        "category": "General",
+        "x": 445,
+        "y": 40,
+        "wires": [
+            [
+                "sd_lCDmBGjCWVy2vHJX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_lCDmBGjCWVy2vHJX",
+        "type": "PageCallService",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "Employee Data",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_y2b7ijfWzSqYLzKv",
+            "type": "tab",
+            "createdDate": "2023-01-03T11:06:55.676Z",
+            "label": "dashbord",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_T1d3rhVMK6Bej2WW",
+            "flowName": "get_employee"
+        },
+        "inputVariables": [
+            {
+                "key": "employeeresult",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            },
+            {
+                "key": "currentState",
+                "map": true,
+                "valueType": "this.page",
+                "value": "recordsState"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "employeeresult",
+                "valueType": "bh.local",
+                "value": "employeeresult",
+                "mapVarName": "employeeresult",
+                "localVar": "bh.local.employeeresult"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/dashbord",
+        "startName": "get_employee",
+        "inputParams": [
+            null,
+            "this.page.recordsState"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "employeeData",
+        "category": "General",
+        "x": 550,
+        "y": 40,
+        "wires": [
+            [
+                "sd_6ZuIpg8P2Jpog4BM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_fyn2DAK5vgOYJNrH",
+        "type": "PageCallService",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "Dashboard Data",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_y2b7ijfWzSqYLzKv",
+            "type": "tab",
+            "createdDate": "2023-01-03T11:06:55.676Z",
+            "label": "dashbord",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_EE9FB2HUwgX29Q4Q",
+            "flowName": "getDashbord"
+        },
+        "inputVariables": [],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "response",
+                "valueType": "bh.local",
+                "value": "dashboardResult",
+                "mapVarName": "response",
+                "localVar": "bh.local.dashboardResult"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/dashbord",
+        "startName": "getDashbord",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "dashboardData",
+        "category": "General",
+        "x": 245,
+        "y": 260,
+        "wires": [
+            [
+                "sd_kBIybMqPQYYwt8P3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_rPCVJR28NtMwvh4D",
+        "type": "Script",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.years = [\n    { value: 2018, viewValue: 2018 },\n    { value: 2019, viewValue: 2019 },\n    { value: 2020, viewValue: 2020 },\n    { value: 2021, viewValue: 2021 },\n    { value: 2022, viewValue: 2022 },\n    { value: 2023, viewValue: 2023 },\n]\n\npage.months = [\n    { viewValue: 'Jan', value: 1 },\n    { viewValue: 'Feb', value: 2 },\n    { viewValue: 'Mar', value: 3 },\n    { viewValue: 'Apr', value: 4 },\n    { viewValue: 'May', value: 5 },\n    { viewValue: 'Jun', value: 6 },\n    { viewValue: 'July', value: 7 },\n    { viewValue: 'Ang', value: 8 },\n    { viewValue: 'Sep', value: 9 },\n    { viewValue: 'Oct', value: 10 },\n    { viewValue: 'Nov', value: 11 },\n    { viewValue: 'Dec', value: 12 },\n    \n]\n\npage.selectedYear = 2022;\npage.selectedMonth = 12;\nthis.getMonthName(page.selectedMonth);\n// console.log(page.selectedTeam);",
+        "functionName": "sd_rPCVJR28NtMwvh4D",
+        "category": "Function",
+        "x": 765,
+        "y": 40,
+        "wires": [
+            [
+                "sd_BDPQjxMtlo7duh0I"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_OhyWKqX2NQPAS5yV",
+        "type": "PageStart",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "onSelected",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "yearValue",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "monthValue",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "onSelected",
+        "category": "General",
+        "x": 105,
+        "y": 360,
+        "wires": [
+            [
+                "sd_PIb2A03OoagIU4g2"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dashboardComponent"
+    },
+    {
+        "id": "sd_ThGLClqlDnuawHzy",
+        "type": "PageStart",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "dashboardChart",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "yearData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "monthData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "dashboardChart",
+        "category": "General",
+        "x": 100,
+        "y": 260,
+        "wires": [
+            [
+                "sd_fyn2DAK5vgOYJNrH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dashboardComponent"
+    },
+    {
+        "id": "sd_kBIybMqPQYYwt8P3",
+        "type": "Script",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\nlet dashboard_apiData = bh.local.dashboardResult.response;\nlet year = bh.input.yearData;\nlet month = bh.input.monthData;\n\nconst paiObj = dashboard_apiData.find(obj => obj.year == year && obj.month_id == month);\nlet paiData;\nif(paiObj == undefined){\n  paiData = [0, 0, 0];\n} else {\n  delete paiObj.year;\n  delete paiObj.month_id;\n  delete paiObj.total;\n  paiData = Object.values(paiObj);\n} \n\n// console.log(paiData);\n\npage.pieChartData = [{\n  data: paiData\n}\n];\n\npage.pieChartLabels = ['Approve', 'pending', 'Rejected'];\n\npage.pieChartOptions = {\n  responsive: true\n}\n\npage.pieChartColor = [{\n   backgroundColor: ['#6E8D41', '#28ADE4', '#F36D37'],\n   borderColor: ['#fff']\n}];",
+        "functionName": "sd_kBIybMqPQYYwt8P3",
+        "category": "Function",
+        "x": 385,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_BDPQjxMtlo7duh0I",
+        "type": "PageCallService",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_IyJUlDA3NIR4nfbm",
+            "type": "tab",
+            "createdDate": "2022-12-14T07:47:31.097Z",
+            "label": "dashboard",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_ThGLClqlDnuawHzy",
+            "flowName": "dashboardChart"
+        },
+        "inputVariables": [
+            {
+                "key": "yearData",
+                "map": true,
+                "valueType": "this.page",
+                "value": "selectedYear"
+            },
+            {
+                "key": "monthData",
+                "map": true,
+                "valueType": "this.page",
+                "value": "selectedMonth"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "dashboardChart",
+        "inputParams": [
+            "this.page.selectedYear",
+            "this.page.selectedMonth"
+        ],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_BDPQjxMtlo7duh0I",
+        "category": "General",
+        "x": 905,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_z8hvBw0teQKmF9W0",
+        "type": "PageCallService",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "call Dashboard chart",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_IyJUlDA3NIR4nfbm",
+            "type": "tab",
+            "createdDate": "2022-12-14T07:47:31.097Z",
+            "label": "dashboard",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_ThGLClqlDnuawHzy",
+            "flowName": "dashboardChart"
+        },
+        "inputVariables": [
+            {
+                "key": "yearData",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "yearValue"
+            },
+            {
+                "key": "monthData",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "monthValue"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "dashboardChart",
+        "inputParams": [
+            "bh.input.yearValue",
+            "bh.input.monthValue"
+        ],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "callDashboardChart",
+        "category": "General",
+        "x": 245,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_PIb2A03OoagIU4g2",
+        "type": "Script",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.monthValue, bh.input.yearValue);\nthis.getMonthName(bh.input.monthValue);",
+        "functionName": "sd_PIb2A03OoagIU4g2",
+        "category": "Function",
+        "x": 180,
+        "y": 360,
+        "wires": [
+            [
+                "sd_z8hvBw0teQKmF9W0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_FJlCrJaxvivxzuiy",
+        "type": "PageStart",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "getMonthName",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "monthNum",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "monthName",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getMonthName",
+        "category": "General",
+        "x": 120,
+        "y": 480,
+        "wires": [
+            [
+                "sd_M92VrIDockPFmqfm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dashboardComponent"
+    },
+    {
+        "id": "sd_M92VrIDockPFmqfm",
+        "type": "Script",
+        "z": "sd_IyJUlDA3NIR4nfbm",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// if(bh.input.monthNum != 'undefined') \n    // let monthNum = bh.input.monthNum\nconst date = new Date()\ndate.setMonth(bh.input.monthNum - 1);\npage.selectedMonthName = date.toLocaleString('en-US', {month: 'short'});\n",
+        "functionName": "sd_M92VrIDockPFmqfm",
+        "category": "Function",
+        "x": 265,
+        "y": 480,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "dashboardComponent",
+        "generated": true
+    }
+]

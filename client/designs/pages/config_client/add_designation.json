@@ -1,0 +1,373 @@
+[
+    {
+        "id": "sd_kv5BklwHIreZ7G0b",
+        "type": "tab",
+        "createdDate": "2022-12-30T04:52:50.474Z",
+        "label": "add_designation",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "add_designationComponent"
+    },
+    {
+        "id": "sd_O5B2JTE4Dvtb2GXD",
+        "type": "OnInit",
+        "z": "sd_kv5BklwHIreZ7G0b",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_O5B2JTE4Dvtb2GXD",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_ajIkEONPC98QU25t"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "add_designationComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_ajIkEONPC98QU25t",
+        "type": "PageVariables",
+        "z": "sd_kv5BklwHIreZ7G0b",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_ajIkEONPC98QU25t",
+        "category": "Function",
+        "x": 145,
+        "y": 40,
+        "wires": [
+            [
+                "sd_jw8m1q3hsIX8gVbA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "add_designationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_mh2T0MKHuMXE6a1f",
+        "type": "GetDialogData",
+        "z": "sd_kv5BklwHIreZ7G0b",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "dialogDataMapping": "this.page.popupdata",
+        "functionName": "sd_mh2T0MKHuMXE6a1f",
+        "category": "Dialog",
+        "x": 345,
+        "y": 40,
+        "wires": [
+            [
+                "sd_jbjouTfbz3usvzwc"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "dialogDataMapping": {
+                "type": "this.page",
+                "value": "popupdata",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "add_designationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_LNRGKxTAHdUXtPey",
+        "type": "PageStart",
+        "z": "sd_kv5BklwHIreZ7G0b",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "close_popup",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "employee_details",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "close_popup",
+        "category": "General",
+        "x": 45,
+        "y": 160,
+        "wires": [
+            [
+                "sd_qhHHdeelNXhwu5RF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "add_designationComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_qhHHdeelNXhwu5RF",
+        "type": "CloseDialog",
+        "z": "sd_kv5BklwHIreZ7G0b",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "bh.local.popupdata",
+        "functionName": "sd_qhHHdeelNXhwu5RF",
+        "category": "Dialog",
+        "x": 205,
+        "y": 160,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "popupdata",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "add_designationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_jbjouTfbz3usvzwc",
+        "type": "Script",
+        "z": "sd_kv5BklwHIreZ7G0b",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.add_addDesignation_form = new FormGroup({\n    'designation_name': new FormControl(''),\n    'designation_count': new FormControl(''),\n});",
+        "functionName": "sd_jbjouTfbz3usvzwc",
+        "category": "Function",
+        "x": 445,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "add_designationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_jw8m1q3hsIX8gVbA",
+        "type": "UseDependency",
+        "z": "sd_kv5BklwHIreZ7G0b",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_jw8m1q3hsIX8gVbA",
+        "category": "Function",
+        "x": 245,
+        "y": 40,
+        "wires": [
+            [
+                "sd_mh2T0MKHuMXE6a1f"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "add_designationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_0nC2TEUR39hFotAR",
+        "type": "PageStart",
+        "z": "sd_kv5BklwHIreZ7G0b",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "addDesignation",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "addDesignation",
+        "category": "General",
+        "x": 45,
+        "y": 260,
+        "wires": [
+            [
+                "sd_RU5l01M0832wcYLJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "add_designationComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_RU5l01M0832wcYLJ",
+        "type": "Script",
+        "z": "sd_kv5BklwHIreZ7G0b",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// console.log(page.add_addDesignation_form.value);\n\npage.designation_name = page.add_addDesignation_form.value.designation_name\npage.designation_count = page.add_addDesignation_form.value.designation_count\n// console.log(page.designation_name, page.designation_count);",
+        "functionName": "sd_RU5l01M0832wcYLJ",
+        "category": "Function",
+        "x": 200,
+        "y": 260,
+        "wires": [
+            [
+                "sd_O95EIEGHRHD81zIx"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "add_designationComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_O95EIEGHRHD81zIx",
+        "type": "PageCallService",
+        "z": "sd_kv5BklwHIreZ7G0b",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": false,
+        "noerr": 0,
+        "service": {
+            "id": "sd_g1X98PAngpHzUT5b",
+            "type": "tab",
+            "createdDate": "2022-12-29T11:23:42.643Z",
+            "label": "designations",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_v6XSNxFl3e3ZpRDy",
+            "flowName": "add_designations"
+        },
+        "inputVariables": [
+            {
+                "key": "designation_name",
+                "map": true,
+                "valueType": "this.page",
+                "value": "designation_name"
+            },
+            {
+                "key": "designation_count",
+                "map": true,
+                "valueType": "this.page",
+                "value": "designation_count"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "designation_result",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "designation_result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/designations",
+        "startName": "add_designations",
+        "inputParams": [
+            "this.page.designation_name",
+            "this.page.designation_count"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_O95EIEGHRHD81zIx",
+        "category": "General",
+        "x": 345,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false,
+        "serviceName": "add_designationComponent"
+    },
+    {
+        "id": "sd_UNiMC1qFZPfT3mQU",
+        "type": "PageCallService",
+        "z": "sd_kv5BklwHIreZ7G0b",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_kv5BklwHIreZ7G0b",
+            "type": "tab",
+            "createdDate": "2022-12-30T04:52:50.474Z",
+            "label": "add_designation",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_LNRGKxTAHdUXtPey",
+            "flowName": "close_popup"
+        },
+        "inputVariables": [
+            {
+                "key": "employee_details",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "close_popup",
+        "inputParams": [
+            null
+        ],
+        "accept_csd": false,
+        "functionName": "sd_UNiMC1qFZPfT3mQU",
+        "category": "General",
+        "x": 440,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "add_designationComponent",
+        "generated": false
+    }
+]

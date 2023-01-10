@@ -1,0 +1,1124 @@
+[
+    {
+        "id": "sd_T1qf7oGaep1Flkfw",
+        "type": "tab",
+        "createdDate": "2022-12-14T07:53:40.119Z",
+        "label": "job_title",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "job_titleComponent"
+    },
+    {
+        "id": "sd_2Lwc3qGYMKuZJkSH",
+        "type": "OnInit",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_2Lwc3qGYMKuZJkSH",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_FTuCS7Xvt9l4j7e3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "job_titleComponent"
+    },
+    {
+        "id": "sd_FTuCS7Xvt9l4j7e3",
+        "type": "PageVariables",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "options",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "selectedDesignations",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            }
+        ],
+        "functionName": "sd_FTuCS7Xvt9l4j7e3",
+        "category": "Function",
+        "x": 215,
+        "y": 60,
+        "wires": [
+            [
+                "sd_rxdpyYKNm4iPJnQZ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_LSHc4te1JfB2sAVS",
+        "type": "AfterViewInit",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 80,
+        "y": 170,
+        "wires": [
+            [
+                "sd_IESzCn4hhi2CL8Rs"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "job_titleComponent"
+    },
+    {
+        "id": "sd_IESzCn4hhi2CL8Rs",
+        "type": "ViewPicker",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatSort"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_xKCCTWKzvgDN0rx7_1",
+        "category": "Function",
+        "x": 220,
+        "y": 170,
+        "wires": [
+            [
+                "sd_XxYAE018lmgOV7qn"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_XxYAE018lmgOV7qn",
+        "type": "Script",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.tableData.sort = this.MatSort;",
+        "functionName": "sd_2VNGqvcKee34lvOz_1",
+        "category": "Function",
+        "x": 360,
+        "y": 170,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_ohB1khtScEpzm9bu",
+        "type": "PageVariables",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "tableData",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "dataSource"
+                }
+            }
+        ],
+        "functionName": "sd_E9QbOlnVduPNV5MO_2",
+        "category": "Function",
+        "x": 420,
+        "y": 70,
+        "wires": [
+            [
+                "sd_FT3jRJhvPzLlrzEk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_rxdpyYKNm4iPJnQZ",
+        "type": "Script",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.dataSource = new MatTableDataSource([]);\npage.state = [\n   {value: true, viewValue: 'Yes'},\n   {value: false, viewValue: 'No'}\n ]\npage.selectedState = true; // Default",
+        "functionName": "sd_rxdpyYKNm4iPJnQZ",
+        "category": "Function",
+        "x": 315,
+        "y": 70,
+        "wires": [
+            [
+                "sd_ohB1khtScEpzm9bu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_N5e7AMsj8DiBMUz2",
+        "type": "Script",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const filterValue = (bh.input.filterEvent.target as HTMLInputElement).value.toLowerCase();\nbh.local.filteredIds = [];\npage.filteredData = page.tableData.filter(el => {\n    if(el.designation_name.toLowerCase().includes(filterValue)){\n        bh.local.filteredIds.push(el.designation_id)\n        return true;\n    };\n});\npage.all = (bh.local.filteredIds.length != 0) && bh.local.filteredIds.every(el => page.selectedDesignations.includes(el));\n// console.log(page.filteredData);",
+        "functionName": "sd_iBlFYTlpoczCmWts_2",
+        "category": "Function",
+        "x": 665,
+        "y": 400,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_USKDrkgMl2GS6ts0",
+        "type": "PageStart",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "onFilter_2",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "filterEvent",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "onFilter_2",
+        "category": "General",
+        "x": 520,
+        "y": 400,
+        "wires": [
+            [
+                "sd_N5e7AMsj8DiBMUz2"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "job_titleComponent"
+    },
+    {
+        "id": "sd_eooDCA6C9ZfXSt0h",
+        "type": "PageStart",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "stateChange",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "stateChange",
+        "category": "General",
+        "x": 85,
+        "y": 280,
+        "wires": [
+            [
+                "sd_CHPcMMmwBWSBmUqR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "job_titleComponent"
+    },
+    {
+        "id": "sd_bLvtlz6dZZqWmoY3",
+        "type": "Script",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.designations_details = bh.local.get_designations_response.response;\npage.tableData = bh.local.designations_details;\npage.filteredData = bh.local.designations_details;",
+        "functionName": "sd_bLvtlz6dZZqWmoY3",
+        "category": "Function",
+        "x": 525,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_CGOqqEjtBUxQbCia",
+        "type": "PageStart",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "select_deselect_designations",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "currentDesignations",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "state",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "select_deselect_designations",
+        "category": "General",
+        "x": 135,
+        "y": 630,
+        "wires": [
+            [
+                "sd_P6daIOSJKOZBdyp6"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "job_titleComponent"
+    },
+    {
+        "id": "sd_P6daIOSJKOZBdyp6",
+        "type": "Script",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if(bh.input.state){\n    page.selectedDesignations.push(bh.input.currentDesignations.designation_id);\n}\nelse {\n    page.selectedDesignations = page.selectedDesignations.filter(el => {return el != bh.input.currentDesignations.designation_id})\n}\npage.all = (page.selectedDesignations.length == page.filteredData.length);",
+        "functionName": "sd_P6daIOSJKOZBdyp6",
+        "category": "Function",
+        "x": 260,
+        "y": 630,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_1uIQOJySwKdbJXB7",
+        "type": "Script",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.is_active = !page.selectedState;",
+        "functionName": "sd_1uIQOJySwKdbJXB7",
+        "category": "Function",
+        "x": 265,
+        "y": 740,
+        "wires": [
+            [
+                "sd_kcSMnOux0JnOKnj1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_sfGQcixXuJLF4JyW",
+        "type": "PageStart",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "activate_deactivate_designations",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "activate_deactivate_designations",
+        "category": "General",
+        "x": 140,
+        "y": 740,
+        "wires": [
+            [
+                "sd_1uIQOJySwKdbJXB7"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "job_titleComponent"
+    },
+    {
+        "id": "sd_CHPcMMmwBWSBmUqR",
+        "type": "Script",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.selectedDesignations = [];\npage.all = false;",
+        "functionName": "sd_CHPcMMmwBWSBmUqR",
+        "category": "Function",
+        "x": 230,
+        "y": 280,
+        "wires": [
+            [
+                "sd_kpkC6ws0YWIRM9zH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_hoZ8IArbKY3ZwjUy",
+        "type": "PageStart",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "selectAll",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "selectAll",
+        "category": "General",
+        "x": 140,
+        "y": 830,
+        "wires": [
+            [
+                "sd_nplMaqJ1CjaG2oHr"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "job_titleComponent"
+    },
+    {
+        "id": "sd_nplMaqJ1CjaG2oHr",
+        "type": "Script",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.selectedDesignations = [];\nfor(let x of page.filteredData){\n    x.selected = bh.input.event.checked;\n    if(x.selected) page.selectedDesignations.push(x.designation_id);\n};",
+        "functionName": "sd_nplMaqJ1CjaG2oHr",
+        "category": "Function",
+        "x": 265,
+        "y": 830,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_2IaW4d5pIcz01AjB",
+        "type": "PageStart",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "update_table",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "update_table",
+        "category": "General",
+        "x": 85,
+        "y": 400,
+        "wires": [
+            [
+                "sd_AXqJqB9duczqId6n"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "job_titleComponent"
+    },
+    {
+        "id": "sd_K6bXCb9j1gkdaHL5",
+        "type": "Script",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.designations_details = bh.local.get_designations_response.response;\npage.tableData = bh.local.designations_details;\npage.filteredData = bh.local.designations_details;\n// page.all = false;\n\n// bh.local.project_details = bh.local.get_project_response.response;\n// page.tableData = bh.local.project_details;\n// page.filteredData = bh.local.project_details;",
+        "functionName": "sd_K6bXCb9j1gkdaHL5",
+        "category": "Function",
+        "x": 385,
+        "y": 400,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_FT3jRJhvPzLlrzEk",
+        "type": "PageCallService",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "Update table",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_T1qf7oGaep1Flkfw",
+            "type": "tab",
+            "createdDate": "2022-12-14T07:53:40.119Z",
+            "label": "job_title",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_2IaW4d5pIcz01AjB",
+            "flowName": "update_table"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "update_table",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "updateTable",
+        "category": "General",
+        "x": 535,
+        "y": 70,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_rF3SxGIVVu2xX2tp",
+        "type": "PageCallService",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "update table after act or deact",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_T1qf7oGaep1Flkfw",
+            "type": "tab",
+            "createdDate": "2022-12-14T07:53:40.119Z",
+            "label": "job_title",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_2IaW4d5pIcz01AjB",
+            "flowName": "update_table"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "update_table",
+        "inputParams": [],
+        "accept_csd": false,
+        "functionName": "updateTableAfterActOrDeact",
+        "category": "General",
+        "x": 525,
+        "y": 740,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_1fv40Ld3iVpvmctH",
+        "type": "PageCallService",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_g1X98PAngpHzUT5b",
+            "type": "tab",
+            "createdDate": "2022-12-29T11:23:42.643Z",
+            "label": "designations",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_ICamTUoeRez99xGB",
+            "flowName": "get_designations"
+        },
+        "inputVariables": [
+            {
+                "key": "designationsresult",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            },
+            {
+                "key": "currentState",
+                "map": true,
+                "valueType": "this.page",
+                "value": "selectedState"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "designationsresult",
+                "valueType": "bh.local",
+                "value": "get_designations_response",
+                "mapVarName": "designationsresult",
+                "localVar": "bh.local.get_designations_response"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/designations",
+        "startName": "get_designations",
+        "inputParams": [
+            null,
+            "this.page.selectedState"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_1fv40Ld3iVpvmctH",
+        "category": "General",
+        "x": 265,
+        "y": 400,
+        "wires": [
+            [
+                "sd_K6bXCb9j1gkdaHL5"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_kpkC6ws0YWIRM9zH",
+        "type": "PageCallService",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_g1X98PAngpHzUT5b",
+            "type": "tab",
+            "createdDate": "2022-12-29T11:23:42.643Z",
+            "label": "designations",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_ICamTUoeRez99xGB",
+            "flowName": "get_designations"
+        },
+        "inputVariables": [
+            {
+                "key": "designationsresult",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            },
+            {
+                "key": "currentState",
+                "map": true,
+                "valueType": "this.page",
+                "value": "selectedState"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "designationsresult",
+                "valueType": "bh.local",
+                "value": "get_designations_response",
+                "mapVarName": "designationsresult",
+                "localVar": "bh.local.get_designations_response"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/designations",
+        "startName": "get_designations",
+        "inputParams": [
+            null,
+            "this.page.selectedState"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_kpkC6ws0YWIRM9zH",
+        "category": "General",
+        "x": 385,
+        "y": 280,
+        "wires": [
+            [
+                "sd_bLvtlz6dZZqWmoY3"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_kcSMnOux0JnOKnj1",
+        "type": "PageCallService",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_g1X98PAngpHzUT5b",
+            "type": "tab",
+            "createdDate": "2022-12-29T11:23:42.643Z",
+            "label": "designations",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_FFfZBUnJ6s7fylGM",
+            "flowName": "active_or_deactive_designations"
+        },
+        "inputVariables": [
+            {
+                "key": "designation_ids",
+                "map": true,
+                "valueType": "this.page",
+                "value": "selectedDesignations"
+            },
+            {
+                "key": "is_active",
+                "map": true,
+                "valueType": "bh.local",
+                "value": "is_active"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/designations",
+        "startName": "active_or_deactive_designations",
+        "inputParams": [
+            "this.page.selectedDesignations",
+            "bh.local.is_active"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_kcSMnOux0JnOKnj1",
+        "category": "General",
+        "x": 385,
+        "y": 740,
+        "wires": [
+            [
+                "sd_rF3SxGIVVu2xX2tp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_AXqJqB9duczqId6n",
+        "type": "Script",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.selectedDesignations = [];\npage.all = false;",
+        "functionName": "sd_AXqJqB9duczqId6n",
+        "category": "Function",
+        "x": 165,
+        "y": 400,
+        "wires": [
+            [
+                "sd_1fv40Ld3iVpvmctH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_65beyd93YtzD9Rfj",
+        "type": "PageStart",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open_popup",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "action",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "currentRecordData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "open_popup",
+        "category": "General",
+        "x": 105,
+        "y": 520,
+        "wires": [
+            [
+                "sd_oriG6azCeTB8fzQv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "job_titleComponent"
+    },
+    {
+        "id": "sd_1sTXVsQvkDBxk38N",
+        "type": "OpenDialog",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_1hOc77lKtHlAn5Fr",
+            "label": "resusable_popup"
+        },
+        "relativePath": "./resusable_popup",
+        "data": "bh.local.popupdata",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "\"\"",
+        "maxHeight": "this.page",
+        "minHeight": "this.page",
+        "width": "\"\"",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "bh.local.panelClass",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "bh.local.dataupdated",
+        "functionName": "sd_1sTXVsQvkDBxk38N",
+        "category": "Dialog",
+        "x": 290,
+        "y": 520,
+        "wires": [
+            [],
+            [
+                "sd_eknTXYw0Au2v7LRJ"
+            ],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "popupdata",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "str",
+                "value": "",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "bh.local",
+                "value": "panelClass",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "dataupdated",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_oriG6azCeTB8fzQv",
+        "type": "Script",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.popupdata = {\n    action : bh.input.action,\n    popup_name : 'designation',\n    data : bh.input.currentRecordData\n};\nbh.local.panelClass = ['designation-popup', bh.input.action];",
+        "functionName": "sd_oriG6azCeTB8fzQv",
+        "category": "Function",
+        "x": 190,
+        "y": 520,
+        "wires": [
+            [
+                "sd_1sTXVsQvkDBxk38N"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_eknTXYw0Au2v7LRJ",
+        "type": "PageSwitch",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "dataupdated",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.dataupdated",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "functionName": "sd_eknTXYw0Au2v7LRJ",
+        "category": "Function",
+        "x": 405,
+        "y": 520,
+        "wires": [
+            [
+                "sd_cbMw9l7mHvoC7F7s"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_cbMw9l7mHvoC7F7s",
+        "type": "PageCallService",
+        "z": "sd_T1qf7oGaep1Flkfw",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "table updates",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_T1qf7oGaep1Flkfw",
+            "type": "tab",
+            "createdDate": "2022-12-14T07:53:40.119Z",
+            "label": "job_title",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_2IaW4d5pIcz01AjB",
+            "flowName": "update_table"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./",
+        "startName": "update_table",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "tableUpdates",
+        "category": "General",
+        "x": 500,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "job_titleComponent",
+        "generated": true
+    }
+]

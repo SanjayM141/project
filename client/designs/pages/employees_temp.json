@@ -1,0 +1,262 @@
+[
+    {
+        "id": "sd_Xg2vriaPYJJYrr5G",
+        "type": "tab",
+        "createdDate": "2022-12-20T07:12:41.646Z",
+        "label": "employees_temp",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "employees_tempComponent"
+    },
+    {
+        "id": "sd_pQwWKv7BoiD0mMu8",
+        "type": "OnInit",
+        "z": "sd_Xg2vriaPYJJYrr5G",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "pageVariables": [],
+        "functionName": "sd_pQwWKv7BoiD0mMu8",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 40,
+        "wires": [
+            [
+                "sd_Pmh5GWn0g9DiJhtn"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "employees_tempComponent"
+    },
+    {
+        "id": "sd_Pmh5GWn0g9DiJhtn",
+        "type": "PageVariables",
+        "z": "sd_Xg2vriaPYJJYrr5G",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_Pmh5GWn0g9DiJhtn",
+        "category": "Function",
+        "x": 205,
+        "y": 40,
+        "wires": [
+            [
+                "sd_XasCzXRoQYsFRY5r"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "employees_tempComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_YbKorkyOWKS50mfI",
+        "type": "OpenDialog",
+        "z": "sd_Xg2vriaPYJJYrr5G",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_lJYO07SmnSBK12KX",
+            "label": "employee_details"
+        },
+        "relativePath": "./employee_details",
+        "data": "this.page.addemp",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "\"\"",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "\"calc(100% - 80px)\"",
+        "maxHeight": "this.page",
+        "minHeight": "this.page",
+        "width": "\"100%\"",
+        "maxWidth": "this.page",
+        "minWidth": "this.page",
+        "panelClass": "\"employee-popup\"",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "this.page",
+        "functionName": "sd_YbKorkyOWKS50mfI",
+        "category": "Dialog",
+        "x": 245,
+        "y": 160,
+        "wires": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "addemp",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "str",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "str",
+                "value": "calc(100% - 80px)",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "width": {
+                "type": "str",
+                "value": "100%",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "str",
+                "value": "employee-popup",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "employees_tempComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_oWijgMAlOgj5kP4A",
+        "type": "PageStart",
+        "z": "sd_Xg2vriaPYJJYrr5G",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "add_employee",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "add_employee",
+        "category": "General",
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "sd_YbKorkyOWKS50mfI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "employees_tempComponent"
+    },
+    {
+        "id": "sd_XasCzXRoQYsFRY5r",
+        "type": "Script",
+        "z": "sd_Xg2vriaPYJJYrr5G",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.addemp ={\n    \"employee_id\": \"123\",\n    \"first_name\": \"hema\",\n    \"last_name\": \"latha\",\n    \"employee_type\": \"external\",\n    \"joining_date\": \"2022-07-24T18:30:00.000Z\",\n    \"end_date\": \"2022-12-20T16:37:15.638Z\",\n    \"designation\": \"se\",\n    \"reporting_managers\": [\n        \"Divya\",\n        \"Paul\"\n    ],\n    \"email_id\": \"hema@hema.com\",\n    \"contact_no\": \"9123456789\",\n    \"header\": \"Add Employee\"\n}\n\n",
+        "functionName": "sd_XasCzXRoQYsFRY5r",
+        "category": "Function",
+        "x": 340,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "employees_tempComponent",
+        "generated": true
+    }
+]

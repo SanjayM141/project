@@ -1,0 +1,148 @@
+[
+    {
+        "id": "sd_Im0ZaV3RMDKb0ciS",
+        "type": "tab",
+        "createdDate": "2022-12-26T11:58:17.071Z",
+        "label": "employees_api",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "employees_api",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_ajxU3hO2hGMNUNuw",
+        "type": "Start",
+        "z": "sd_Im0ZaV3RMDKb0ciS",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "getEmpList",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "is_active",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "getEmpList",
+        "category": "General",
+        "x": 100,
+        "y": 100,
+        "wires": [
+            [
+                "sd_F3mRzwfYmuNs5UX6"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "employees_api"
+    },
+    {
+        "id": "sd_F3mRzwfYmuNs5UX6",
+        "type": "Script",
+        "z": "sd_Im0ZaV3RMDKb0ciS",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\n\nlet k = bh.input.is_active;\n\nbh.local.url = 'http://localhost:8081/api/admin/get_employee' + '?is_active=' + k;\n\n",
+        "functionName": "sd_F3mRzwfYmuNs5UX6",
+        "category": "Function",
+        "x": 245,
+        "y": 100,
+        "wires": [
+            [
+                "sd_U9dFVc0jeiCzDNfY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "employees_api",
+        "generated": true
+    },
+    {
+        "id": "sd_U9dFVc0jeiCzDNfY",
+        "type": "HttpRequest",
+        "z": "sd_Im0ZaV3RMDKb0ciS",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_U9dFVc0jeiCzDNfY",
+        "category": "HTTP",
+        "x": 340,
+        "y": 100,
+        "wires": [
+            [
+                "sd_RuG10azRqiO1gScy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "employees_api",
+        "generated": true
+    },
+    {
+        "id": "sd_RuG10azRqiO1gScy",
+        "type": "Script",
+        "z": "sd_Im0ZaV3RMDKb0ciS",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// console.log(bh.local.result)",
+        "functionName": "sd_RuG10azRqiO1gScy",
+        "category": "Function",
+        "x": 460,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "employees_api",
+        "generated": true
+    }
+]

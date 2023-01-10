@@ -1,0 +1,439 @@
+[
+    {
+        "id": "sd_h38F9glaeQvagBhz",
+        "type": "tab",
+        "createdDate": "2022-12-14T08:06:03.188Z",
+        "label": "timesheet_summary",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 2,
+        "generateNext": true,
+        "serviceName": "timesheet_summaryComponent"
+    },
+    {
+        "id": "sd_qVUPYZScht18f4cZ",
+        "type": "OnInit",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "pageVariables": [],
+        "functionName": "sd_qVUPYZScht18f4cZ",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_D1DTdxT2cP1YnccR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "timesheet_summaryComponent"
+    },
+    {
+        "id": "sd_D1DTdxT2cP1YnccR",
+        "type": "PageVariables",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_D1DTdxT2cP1YnccR",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            [
+                "sd_xyM68hLAorsH8cUt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_summaryComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_TkBHCJDiBKZIKkar",
+        "type": "Script",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.dataSource = new MatTableDataSource([\n  {\n    emp_id: '01', emp_name: 'Sakthi', emp_type: 'External', emp_mail: 'sakthi@gmail.com', repo_manager: 'Bala', nod_worked: '22', nod_leaves: '2', total_duration: '110', approved_timeSheet: 'https://approved_timeSheet-url', approval_image: 'https://approval_image-url', timeSheet_status: 'Approved' }\n  ,\n  {\n    emp_id: '02', emp_name: 'Sakthi', emp_type: 'External', emp_mail: 'sakthi@gmail.com', repo_manager: 'Bala', nod_worked: '22', nod_leaves: '2', total_duration: '110', approved_timeSheet: 'https://approved_timeSheet-url', approval_image: 'https://approval_image-url', timeSheet_status: 'Approved' }\n  ,\n  {\n    emp_id: '03', emp_name: 'Sakthi', emp_type: 'External', emp_mail: 'sakthi@gmail.com', repo_manager: 'Bala', nod_worked: '22', nod_leaves: '2', total_duration: '110', approved_timeSheet: 'https://approved_timeSheet-url', approval_image: 'https://approval_image-url', timeSheet_status: 'Approved' }\n  ,\n  {\n    emp_id: '04', emp_name: 'Sakthi', emp_type: 'External', emp_mail: 'sakthi@gmail.com', repo_manager: 'Bala', nod_worked: '22', nod_leaves: '2', total_duration: '110', approved_timeSheet: 'https://approved_timeSheet-url', approval_image: 'https://approval_image-url', timeSheet_status: 'Approved' }\n  ,\n  {\n    emp_id: '05', emp_name: 'Sakthi', emp_type: 'External', emp_mail: 'sakthi@gmail.com', repo_manager: 'Bala', nod_worked: '22', nod_leaves: '2', total_duration: '110', approved_timeSheet: 'https://approved_timeSheet-url', approval_image: 'https://approval_image-url', timeSheet_status: 'Approved' }\n  ,\n]);\n\npage.data = page.dataSource.filteredData;\n\npage.timesheet_status = [\n   {value: 'approved', viewValue: 'Approved'},\n   {value: 'rejected', viewValue: 'Rejected'},\n   {value: 'pending', viewValue: 'Pending'},\n ];\n\npage.cards = [\n  {\n    cardTitle: 'Total', cardLabel: '7', cardType: 'total',}\n  ,\n  {\n    cardTitle: 'Approved', cardLabel: '5', cardType: 'approved',}\n  ,\n  {\n    cardTitle: 'Pending', cardLabel: '2', cardType: 'pending',}\n  ,\n  {\n    cardTitle: 'Rejected', cardLabel: '0', cardType: 'rejected',}\n  ,\n];\n\n\npage.timesheetMonth = page.activeRoute.snapshot.paramMap.get('id');",
+        "functionName": "sd_eJuzOUTYKNgXaqdz_1",
+        "category": "Function",
+        "x": 525,
+        "y": 40,
+        "wires": [
+            [
+                "sd_VwxYiKGRSESZarxD"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_summaryComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_VwxYiKGRSESZarxD",
+        "type": "PageVariables",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "tableData",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "dataSource"
+                }
+            }
+        ],
+        "functionName": "sd_E9QbOlnVduPNV5MO_1",
+        "category": "Function",
+        "x": 665,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_summaryComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_fpmM8KmfBUZQe8yz",
+        "type": "AfterViewInit",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "ngAfterViewInit",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 120,
+        "wires": [
+            [
+                "sd_7eNjQw6utY1QiZnO"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "timesheet_summaryComponent"
+    },
+    {
+        "id": "sd_7eNjQw6utY1QiZnO",
+        "type": "ViewPicker",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatSort"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "sd_xKCCTWKzvgDN0rx7_1",
+        "category": "Function",
+        "x": 185,
+        "y": 120,
+        "wires": [
+            [
+                "sd_sJlZkU9MNK6KdBTa"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_summaryComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_sJlZkU9MNK6KdBTa",
+        "type": "Script",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "this.page.tableData.sort = this.MatSort;",
+        "functionName": "sd_2VNGqvcKee34lvOz_1",
+        "category": "Function",
+        "x": 285,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_summaryComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_iNXh7l08be2Y9mbU",
+        "type": "Script",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// console.log(bh.input.filterEvent);\nconst filterValue = (bh.input.filterEvent.target as HTMLInputElement).value;\nthis.page.tableData.filter = filterValue.trim().toLowerCase();\n// console.log(this.page.tableData.filteredData)\n\n",
+        "functionName": "sd_iBlFYTlpoczCmWts_2",
+        "category": "Function",
+        "x": 525,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_summaryComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_FiCpCfYAMk6hMy7h",
+        "type": "PageStart",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "onFilter_2",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "filterEvent",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "onFilter_2",
+        "category": "General",
+        "x": 405,
+        "y": 120,
+        "wires": [
+            [
+                "sd_iNXh7l08be2Y9mbU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "timesheet_summaryComponent"
+    },
+    {
+        "id": "sd_OSICqNRnU8FdBEID",
+        "type": "PageStart",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "downloadCSV",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "downloadCSV",
+        "category": "General",
+        "x": 65,
+        "y": 220,
+        "wires": [
+            [
+                "sd_bIBTJzoTVT3PDeIX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "timesheet_summaryComponent"
+    },
+    {
+        "id": "sd_bIBTJzoTVT3PDeIX",
+        "type": "Script",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "let status = [\"approved\", \"rejected\", \"pending\"];\n\nlet options = {\n  // title: 'User Details',\n  fieldSeparator: ',',\n  quoteStrings: '\"',\n  decimalseparator: '.',\n  showLabels: true,\n  // showTitle: true,\n  useBom: true,\n  headers: ['Employee ID', 'Employee Name',\t'Type',\t'Mail ID',\t'Reporting Manager',\t'No of days worked',\t'No of leaves Taken',\t'Total Duration',\t'Approved Timesheet',\t'Approval Image',\t'Timesheet Status']\n};\n\nlet fileName = `${page.timesheetMonth} Timesheet Status`;\n\nnew page.angular2Csv(page.data, fileName, options);",
+        "functionName": "sd_bIBTJzoTVT3PDeIX",
+        "category": "Function",
+        "x": 185,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_summaryComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_xyM68hLAorsH8cUt",
+        "type": "UseDependency",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "Angular2Csv",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "angular2Csv"
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "angular2-csv/Angular2-csv",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_xyM68hLAorsH8cUt",
+        "category": "Function",
+        "x": 285,
+        "y": 40,
+        "wires": [
+            [
+                "sd_M2o2KF4OI22n5Vym"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_summaryComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_oM3lB3P4LrvHklGD",
+        "type": "PageStart",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "downloadXlsx",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "downloadXlsx",
+        "category": "General",
+        "x": 305,
+        "y": 220,
+        "wires": [
+            [
+                "sd_Tw1yIf2fYXgX7Rvh"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "timesheet_summaryComponent"
+    },
+    {
+        "id": "sd_Tw1yIf2fYXgX7Rvh",
+        "type": "Script",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(page.data);\nconst wb: XLSX.WorkBook = XLSX.utils.book_new();\n\nXLSX.utils.book_append_sheet(wb, ws, 'Sheet1');\nXLSX.writeFile(wb, `${page.timesheetMonth} Timesheet Status.xlsx`);",
+        "functionName": "sd_Tw1yIf2fYXgX7Rvh",
+        "category": "Function",
+        "x": 425,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_summaryComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_M2o2KF4OI22n5Vym",
+        "type": "UseDependency",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "xlsx",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.xlsx",
+        "alias": "XLSX",
+        "modules": [],
+        "import_all": true,
+        "library": "xlsx",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_M2o2KF4OI22n5Vym",
+        "category": "Function",
+        "x": 365,
+        "y": 40,
+        "wires": [
+            [
+                "sd_AqGKXFVb1iQL6Kmy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_summaryComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_AqGKXFVb1iQL6Kmy",
+        "type": "UseDependency",
+        "z": "sd_h38F9glaeQvagBhz",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "ActivatedRoute",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "activeRoute"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/router",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_AqGKXFVb1iQL6Kmy",
+        "category": "Function",
+        "x": 460,
+        "y": 40,
+        "wires": [
+            [
+                "sd_TkBHCJDiBKZIKkar"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "timesheet_summaryComponent",
+        "generated": true
+    }
+]
